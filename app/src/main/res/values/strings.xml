@@ -9,4 +9,8 @@
     <string name="Minus">Minus</string>
     <string name="skill_pilot">Piloting Skill</string>
     <string name="credit_icon_plus">Icons made by Hanan from is licensed by CC 3.0 BY</string>
+    <string name="skill_points_current">Skill points: 0</string>
+    <string name="skill_fighter">Fighting Skill</string>
+    <string name="skill_trader">Trading Skill</string>
+    <string name="skill_engineer">Engineering Skill</string>
 </resources>
