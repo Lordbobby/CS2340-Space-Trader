@@ -2,7 +2,6 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -36,6 +35,8 @@
             android:id="@+id/skill_selection_pointsLeft"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="@string/skill_selection_pointsLeft"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
 
@@ -43,7 +44,8 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -90,9 +92,7 @@
                     android:layout_marginEnd="0dp"
                     android:layout_marginBottom="0dp"
                     android:layout_toStartOf="@+id/skill_pilot_plusButton"
-                    android:layout_toTopOf="@+id/skill_pilot_value"
                     android:layout_toEndOf="@+id/skill_pilot_minusButton"
-                    android:layout_toBottomOf="@+id/skill_pilot_label"
                     android:background="@drawable/skill_icon"
                     app:srcCompat="@drawable/ic_pilot" />
 
@@ -169,9 +169,7 @@
                     android:layout_marginEnd="0dp"
                     android:layout_marginBottom="0dp"
                     android:layout_toStartOf="@+id/skill_fighter_plusButton"
-                    android:layout_toTopOf="@+id/skill_fighter_value"
                     android:layout_toEndOf="@+id/skill_fighter_minusButton"
-                    android:layout_toBottomOf="@+id/skill_fighter_label"
                     android:background="@drawable/skill_icon"
                     app:srcCompat="@drawable/ic_sword" />
 
@@ -210,7 +208,8 @@
             android:layout_height="150dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -257,9 +256,7 @@
                     android:layout_marginEnd="0dp"
                     android:layout_marginBottom="0dp"
                     android:layout_toStartOf="@+id/skill_trader_plusButton"
-                    android:layout_toTopOf="@+id/skill_trader_value"
                     android:layout_toEndOf="@+id/skill_trader_minusButton"
-                    android:layout_toBottomOf="@+id/skill_trader_label"
                     android:background="@drawable/skill_icon"
                     app:srcCompat="@drawable/ic_money" />
 
@@ -336,9 +333,7 @@
                     android:layout_marginEnd="0dp"
                     android:layout_marginBottom="0dp"
                     android:layout_toStartOf="@+id/skill_engineer_plusButton"
-                    android:layout_toTopOf="@+id/skill_engineer_value"
                     android:layout_toEndOf="@+id/skill_engineer_minusButton"
-                    android:layout_toBottomOf="@+id/skill_engineer_label"
                     android:background="@drawable/skill_icon"
                     app:srcCompat="@drawable/ic_handyman_tools" />
 

@@ -1,20 +1,51 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
-import android.app.Application
-import android.arch.lifecycle.AndroidViewModel
-import android.support.v4.app.Fragment
-import android.widget.TextView
-import edu.gatech.cs2340.spacetrader.R
-import edu.gatech.cs2340.spacetrader.model.Config
+import android.util.Log
 import edu.gatech.cs2340.spacetrader.model.Skill
-import kotlinx.android.synthetic.main.fragment_skill_selection.*;
 
-class SkillSelectionViewModel(app: Application) : AndroidViewModel(app) {
-    val maxPoints : Int = 16
-    var pointsUsed : Int = 0
-    val config: Config = Config()
+class SkillSelectionViewModel() {
+    private var skillMap = mutableMapOf<Skill, Int>()
+    private val skills = Skill.values()
+    private val maxSkillPoints = 16
+    private var usedSkillPoints = 0
 
-    fun addPoint(enum: Skill) {
+    init {
+        for(s : Skill in skills) {
+            skillMap[s] = 0
+        }
+    }
 
+    fun addSkillPoint(skill : Skill) {
+        Log.d("SSVM", "Adding: ${usedSkillPoints} + 1 = ${usedSkillPoints + 1}")
+        if (usedSkillPoints < maxSkillPoints) {
+            skillMap[skill] = skillMap[skill]!! + 1
+            usedSkillPoints++
+        }
+    }
+
+    fun removeSkillPoint(skill : Skill) {
+        Log.d("SSVM", "Removing: ${usedSkillPoints} - 1 = ${usedSkillPoints - 1}")
+        if (usedSkillPoints > 0 && skillMap[skill]!! > 0) {
+            skillMap[skill] = skillMap[skill]!! - 1
+            usedSkillPoints--
+        }
+    }
+
+    fun getUsedPoints() : Int {
+        return usedSkillPoints
+    }
+
+    fun getPointsLeft() : Int {
+        return maxSkillPoints - usedSkillPoints
+    }
+
+    fun getSkillPoints(skill : Skill) : Int {
+        Log.d("SSVM", "Getting ${skillMap[skill]} points for ${skill.toString()}")
+        return skillMap[skill]!!
+    }
+
+    //Use this to get the skill info
+    fun getSkillMap() : MutableMap<Skill, Int> {
+        return skillMap
     }
 }
