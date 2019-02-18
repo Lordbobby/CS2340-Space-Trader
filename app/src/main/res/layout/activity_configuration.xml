@@ -10,5 +10,15 @@
         android:id="@+id/fragment"
         android:name="edu.gatech.cs2340.spacetrader.views.SkillFragment"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="181dp"
+        tools:layout_editor_absoluteY="228dp" />
+
+    <fragment
+        android:id="@+id/config_fragment"
+        android:name="edu.gatech.cs2340.spacetrader.views.GameDifficultyFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="14dp"
+        tools:layout_editor_absoluteX="99dp"
+        tools:layout_editor_absoluteY="88dp" />
 </android.support.constraint.ConstraintLayout>
