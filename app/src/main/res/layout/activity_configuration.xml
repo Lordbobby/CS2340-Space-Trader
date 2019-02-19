@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="edu.gatech.cs2340.spacetrader.views.SkillFragment"
+        android:name="edu.gatech.cs2340.spacetrader.views.NameFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 </android.support.constraint.ConstraintLayout>
