@@ -11,6 +11,7 @@ class NameSelectionViewModel() {
     }
 
     fun getName(): String {
+
         return name
     }
 }
