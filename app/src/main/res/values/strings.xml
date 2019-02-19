@@ -2,14 +2,14 @@
     <string name="app_name">CS2340-Space-Trader</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="skill_selection_title">Select Your Skills</string>
-    <string name="skill_selection_pointsLeft">Unassigned Points: </string>
+    <string name="skill_selection_pointsLeft">Unassigned Points: %1$d</string>
     <string name="credit_title">Credit:</string>
     <string name="credit_icon_pilot">Icons made by Freepik from www.flaticon.com is licensed by CC 3.0 BY</string>
     <string name="minus">-</string>
     <string name="Minus">Minus</string>
     <string name="skill_pilot">Piloting Skill</string>
     <string name="credit_icon_plus">Icons made by Hanan from is licensed by CC 3.0 BY</string>
-    <string name="skill_points_current">Skill points: </string>
+    <string name="skill_points_current">Skill points: %1$d</string>
     <string name="skill_fighter">Fighting Skill</string>
     <string name="skill_trader">Trading Skill</string>
     <string name="skill_engineer">Engineering Skill</string>
