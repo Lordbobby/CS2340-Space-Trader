@@ -23,15 +23,18 @@ class GameDifficultyFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val adapter = ArrayAdapter<GameDifficulty>(activity, android.R.layout.simple_spinner_item, GameDifficulty.values())
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        gameDifficultySpinner.adapter = adapter
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_game_difficulty, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        val adapter = ArrayAdapter<GameDifficulty>(activity, android.R.layout.simple_spinner_item, GameDifficulty.values())
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        gameDifficultySpinner!!.adapter = adapter
     }
 
     companion object {
