@@ -6,28 +6,22 @@ import edu.gatech.cs2340.spacetrader.entity.SkillsData
 
 class SkillSelectionViewModel(): GameSetup<SkillsData> {
     private var skillMap = mutableMapOf<Skill, Int>()
-    private val skills = Skill.values()
+    private val skills = SkillsData(skillMap)
     private val maxSkillPoints = 16
     private var usedSkillPoints = 0
 
-    init {
-        for(s : Skill in skills) {
-            skillMap[s] = 0
-        }
-    }
-
     fun addSkillPoint(skill : Skill) {
-        Log.d("SSVM", "Adding: ${usedSkillPoints} + 1 = ${usedSkillPoints + 1}")
+        //Log.d("SSVM", "Adding: ${usedSkillPoints} + 1 = ${usedSkillPoints + 1}")
         if (usedSkillPoints < maxSkillPoints) {
-            skillMap[skill] = skillMap[skill]!! + 1
+            skills.addPoint(skill)
             usedSkillPoints++
         }
     }
 
     fun removeSkillPoint(skill : Skill) {
-        Log.d("SSVM", "Removing: ${usedSkillPoints} - 1 = ${usedSkillPoints - 1}")
+        //Log.d("SSVM", "Removing: ${usedSkillPoints} - 1 = ${usedSkillPoints - 1}")
         if (usedSkillPoints > 0 && skillMap[skill]!! > 0) {
-            skillMap[skill] = skillMap[skill]!! - 1
+            skills.removePoint(skill)
             usedSkillPoints--
         }
     }
@@ -51,6 +45,6 @@ class SkillSelectionViewModel(): GameSetup<SkillsData> {
     }
 
     override fun passPlayerData(): SkillsData {
-        return SkillsData(skillMap[Skill.PILOT]!!, skillMap[Skill.FIGHTER]!!, skillMap[Skill.TRADER]!!, skillMap[Skill.ENGINEER]!!)
+        return skills
     }
 }
