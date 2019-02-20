@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.views
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
@@ -30,5 +31,10 @@ class ConfigurationActivity : AppCompatActivity() {
 
             Toast.makeText(applicationContext, toastText, Toast.LENGTH_SHORT).show()
         } //setOnClickListener
+
+        exit_game.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java)
+            startActivity(intent)
+        }
     } //onCreate
 } //ConfigurationActivity
