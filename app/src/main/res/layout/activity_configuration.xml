@@ -1,17 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".views.ConfigurationActivity">
 
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="59dp"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <fragment
-            android:id="@+id/fragment"
-            android:name="edu.gatech.cs2340.spacetrader.views.GameDifficultyFragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="338dp"
-            android:layout_marginBottom="712dp" />
-</android.support.constraint.ConstraintLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <fragment
+        android:id="@+id/name"
+        android:name="edu.gatech.cs2340.spacetrader.views.NameFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <fragment
+        android:id="@+id/skills"
+        android:name="edu.gatech.cs2340.spacetrader.views.SkillFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/appBarLayout"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="26dp" />
+
+    <Button
+        android:id="@+id/start_game"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:text="Start Game" />
+</RelativeLayout>
