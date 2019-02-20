@@ -11,6 +11,7 @@ import android.widget.ImageButton
 import android.widget.TextView
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.viewmodel.NameSelectionViewModel
+import kotlinx.android.synthetic.main.fragment_name_selection.*
 import kotlinx.android.synthetic.main.fragment_name_selection.view.*
 
 class NameFragment : Fragment(){
@@ -28,15 +29,5 @@ class NameFragment : Fragment(){
             savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_name_selection, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val name = view.name_input
-
-        fun updateName() {
-            name.setText(nameVm.getName())
-        }
-
-        updateName()
     }
 }

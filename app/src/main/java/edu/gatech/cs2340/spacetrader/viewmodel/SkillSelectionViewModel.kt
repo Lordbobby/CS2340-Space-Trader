@@ -51,6 +51,6 @@ class SkillSelectionViewModel(): GameSetup<SkillsData> {
     }
 
     override fun passPlayerData(): SkillsData {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return SkillsData(skillMap[Skill.PILOT]!!, skillMap[Skill.ENGINEER]!!, skillMap[Skill.FIGHTER]!!, skillMap[Skill.TRADER]!!)
     }
 }

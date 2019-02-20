@@ -16,4 +16,5 @@
     <string name="name_selection_title">Name: </string>
     <string name="name_hint">Enter Your Name</string>
     <string name="difficulty">Difficulty</string>
+    <string name="startGame">Start Game</string>
 </resources>
