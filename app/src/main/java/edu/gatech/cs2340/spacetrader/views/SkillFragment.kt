@@ -15,7 +15,7 @@ import edu.gatech.cs2340.spacetrader.viewmodel.SkillSelectionViewModel
 import kotlinx.android.synthetic.main.fragment_skill_selection.view.*
 
 class SkillFragment : Fragment() {
-    var skillVm = SkillSelectionViewModel()
+    val skillVm = SkillSelectionViewModel()
 
     companion object {
         fun newInstance(): SkillFragment {
@@ -122,4 +122,5 @@ class SkillFragment : Fragment() {
             updateEngineerPoints()
         }
     }
+
 }

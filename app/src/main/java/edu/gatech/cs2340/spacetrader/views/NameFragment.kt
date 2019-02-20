@@ -13,12 +13,13 @@ import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.model.Skill
 import edu.gatech.cs2340.spacetrader.viewmodel.NameSelectionViewModel
 import edu.gatech.cs2340.spacetrader.viewmodel.SkillSelectionViewModel
+import kotlinx.android.synthetic.main.fragment_name_selection.*
 import kotlinx.android.synthetic.main.fragment_name_selection.view.*
 import kotlinx.android.synthetic.main.fragment_skill_selection.view.*
 import java.util.jar.Attributes
 
 class NameFragment : Fragment() {
-    var nameVm = NameSelectionViewModel()
+    val nameVm = NameSelectionViewModel()
 
     companion object {
         fun newInstance(): NameFragment {
@@ -43,5 +44,6 @@ class NameFragment : Fragment() {
 
         updateName()
     }
+
 
 }
