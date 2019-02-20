@@ -6,12 +6,15 @@ import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.model.GameDifficulty
 import edu.gatech.cs2340.spacetrader.viewmodel.ConfigurationViewModel
+import edu.gatech.cs2340.spacetrader.views.configfragments.GameDifficultyFragment
+import edu.gatech.cs2340.spacetrader.views.configfragments.NameFragment
+import edu.gatech.cs2340.spacetrader.views.configfragments.SkillFragment
 import kotlinx.android.synthetic.main.activity_configuration.*
 import kotlinx.android.synthetic.main.fragment_game_difficulty.*
 import kotlinx.android.synthetic.main.fragment_name_selection.*
 
 class ConfigurationActivity : AppCompatActivity() {
-    val configVM = ConfigurationViewModel()
+    private val configVM = ConfigurationViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

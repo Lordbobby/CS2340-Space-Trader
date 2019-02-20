@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.spacetrader.views
+package edu.gatech.cs2340.spacetrader.views.configfragments
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
