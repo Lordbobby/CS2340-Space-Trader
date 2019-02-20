@@ -18,14 +18,12 @@ class GameDifficultyFragment : Fragment(){
                               savedInstanceState: Bundle?): View? {
 
         return inflater.inflate(R.layout.fragment_game_difficulty, container, false)
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val adapter = ArrayAdapter<GameDifficulty>(activity, android.R.layout.simple_spinner_item, GameDifficulty.values())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         gameDifficultySpinner!!.adapter = adapter
-
     }
 
 }

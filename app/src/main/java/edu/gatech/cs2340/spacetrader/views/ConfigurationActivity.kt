@@ -18,18 +18,23 @@ class ConfigurationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_configuration)
 
         start_game.setOnClickListener { view ->
-            (name as NameFragment).nameVm.setName(name.name_input.text.toString())
-            (difficulty as GameDifficultyFragment).difficultyVM.setDifficulty((difficulty.gameDifficultySpinner.selectedItem as GameDifficulty))
             val toastText: String
+            val playerNameVM = (name as NameFragment).nameVm
+            val playerSkillVM = (skills as SkillFragment).skillVm
+            val playerDifficultyVM = (difficulty as GameDifficultyFragment).difficultyVM
 
-            if(configVM.validate((name as NameFragment).nameVm, (skills as SkillFragment).skillVm)) {
-                configVM.createPlayer((name as NameFragment).nameVm,
-                        (skills as SkillFragment).skillVm,
-                        (difficulty as GameDifficultyFragment).difficultyVM)
+            //gets the values from the activity and sets it to their corresponding VM
+            playerNameVM.setName(name.name_input.text.toString())
+            playerDifficultyVM.setDifficulty(difficulty.gameDifficultySpinner.selectedItem as GameDifficulty)
+
+            //validates the player
+            if(configVM.createPlayer(playerNameVM,
+                            playerSkillVM,
+                            playerDifficultyVM)) {
                 toastText = "Player successfully created!"
             } else {
                 toastText = "Invalid player! make sure name is not empty and all skill points have been allocated"
-            }
+            } //if all
 
             Toast.makeText(applicationContext, toastText, Toast.LENGTH_SHORT).show()
         } //setOnClickListener
