@@ -51,6 +51,6 @@ class SkillSelectionViewModel(): GameSetup<SkillsData> {
     }
 
     override fun passPlayerData(): SkillsData {
-        return SkillsData(skillMap[Skill.PILOT]!!, skillMap[Skill.ENGINEER]!!, skillMap[Skill.FIGHTER]!!, skillMap[Skill.TRADER]!!)
+        return SkillsData(skillMap[Skill.PILOT]!!, skillMap[Skill.FIGHTER]!!, skillMap[Skill.TRADER]!!, skillMap[Skill.ENGINEER]!!)
     }
 }
