@@ -1,21 +1,43 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
-class NameSelectionViewModel(): GameSetup<String> {
-    private var name = ""
+import edu.gatech.cs2340.spacetrader.entity.validators.NameValidator
+import edu.gatech.cs2340.spacetrader.util.DataType
+import edu.gatech.cs2340.spacetrader.util.NamedData
+
+class NameSelectionViewModel: NamedData, ValidatableConfigViewModel {
+    private var name: String
+    private val validator: NameValidator
 
     init {
         name = ""
+        validator = NameValidator(this)
     }
 
     fun setName(name: String) {
         this.name = name
     }
 
-    fun getName(): String {
+    override fun getName(): String {
         return name
     }
 
-    override fun passPlayerData(): String {
+    override fun isNotEmpty(): Boolean {
+        return getName().isNotEmpty()
+    }
+
+    override fun validate(): Boolean {
+        return validator.validate()
+    }
+
+    override fun getInvalidMessage(): String {
+        return "The name can't be empty!"
+    }
+
+    override fun processData(): Any {
         return name
+    }
+
+    override fun getDataType(): DataType {
+        return DataType.NAME
     }
 }
