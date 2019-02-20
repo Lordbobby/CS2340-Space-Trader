@@ -39,11 +39,6 @@ class SkillSelectionViewModel(): GameSetup<SkillsData> {
         return skillMap[skill]!!
     }
 
-    //Use this to get the skill info
-    fun getSkillMap() : MutableMap<Skill, Int> {
-        return skillMap
-    }
-
     override fun passPlayerData(): SkillsData {
         return skills
     }
