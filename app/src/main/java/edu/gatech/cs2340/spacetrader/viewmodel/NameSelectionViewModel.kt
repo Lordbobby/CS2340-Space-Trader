@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
 import android.util.Log
-import edu.gatech.cs2340.spacetrader.model.Skill
+import edu.gatech.cs2340.spacetrader.entity.Skill
 import edu.gatech.cs2340.spacetrader.views.NameFragment
 
 class NameSelectionViewModel() {

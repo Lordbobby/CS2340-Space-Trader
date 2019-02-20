@@ -15,4 +15,5 @@
     <string name="skill_engineer">Engineering Skill</string>
     <string name="name_selection_title">Name: </string>
     <string name="name_hint">Enter Your Name</string>
+    <string name="difficulty">Difficulty</string>
 </resources>

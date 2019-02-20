@@ -2,8 +2,9 @@ package edu.gatech.cs2340.spacetrader.viewmodel
 
 import android.util.Log
 import edu.gatech.cs2340.spacetrader.entity.Skill
+import edu.gatech.cs2340.spacetrader.entity.SkillsData
 
-class SkillSelectionViewModel() {
+class SkillSelectionViewModel(): GameSetup<SkillsData> {
     private var skillMap = mutableMapOf<Skill, Int>()
     private val skills = Skill.values()
     private val maxSkillPoints = 16
@@ -47,5 +48,9 @@ class SkillSelectionViewModel() {
     //Use this to get the skill info
     fun getSkillMap() : MutableMap<Skill, Int> {
         return skillMap
+    }
+
+    override fun passPlayerData(): SkillsData {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

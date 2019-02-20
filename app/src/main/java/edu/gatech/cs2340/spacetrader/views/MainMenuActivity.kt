@@ -13,7 +13,7 @@ class MainMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        toolbar.setTitle("Main Menu")
+        toolbar.title = "Main Menu"
         setSupportActionBar(toolbar)
         newGame.setOnClickListener { view ->
             val intent = Intent(this, ConfigurationActivity::class.java)

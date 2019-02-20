@@ -10,7 +10,7 @@ import edu.gatech.cs2340.spacetrader.entity.Skill
 import edu.gatech.cs2340.spacetrader.viewmodel.SkillSelectionViewModel
 import kotlinx.android.synthetic.main.fragment_skill_selection.view.*
 
-class SkillFragment : Fragment() {
+class SkillFragment : Fragment(){
     val skillVm = SkillSelectionViewModel()
 
     companion object {
