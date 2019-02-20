@@ -8,14 +8,9 @@ import edu.gatech.cs2340.spacetrader.util.DataType
 import edu.gatech.cs2340.spacetrader.util.SkilledData
 
 class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
-    private var skillMap = mutableMapOf<Skill, Int>()
-    private val skills = SkillsData(skillMap)
+    private val skills = SkillsData(mutableMapOf())
     private var usedSkillPoints = 0
-    private val validator: SkillValidator
-
-    init {
-        validator = SkillValidator(this)
-    }
+    private val validator: SkillValidator = SkillValidator(this)
 
     fun addSkillPoint(skill : Skill) {
         //Log.d("SSVM", "Adding: ${usedSkillPoints} + 1 = ${usedSkillPoints + 1}")
@@ -27,14 +22,10 @@ class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
 
     fun removeSkillPoint(skill : Skill) {
         //Log.d("SSVM", "Removing: ${usedSkillPoints} - 1 = ${usedSkillPoints - 1}")
-        if (usedSkillPoints > 0 && skillMap[skill]!! > 0) {
+        if (usedSkillPoints > 0 && skills.skillsMap[skill]!! > 0) {
             skills.removePoint(skill)
             usedSkillPoints--
         }
-    }
-
-    fun getUsedPoints() : Int {
-        return usedSkillPoints
     }
 
     fun getPointsLeft() : Int {
@@ -42,13 +33,8 @@ class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
     }
 
     fun getSkillPoints(skill : Skill) : Int {
-        Log.d("SSVM", "Getting ${skillMap[skill]} points for $skill")
-        return skillMap[skill]!!
-    }
-
-    //Use this to get the skill info
-    fun getSkillMap() : MutableMap<Skill, Int> {
-        return skillMap
+        Log.d("SSVM", "Getting ${skills.skillsMap[skill]} points for $skill")
+        return skills.skillsMap[skill]!!
     }
 
     override fun isFullyAllocated(): Boolean {
