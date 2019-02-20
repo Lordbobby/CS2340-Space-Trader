@@ -2,15 +2,11 @@ package edu.gatech.cs2340.spacetrader.views
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.text.Editable
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.TextView
 import edu.gatech.cs2340.spacetrader.R
-import edu.gatech.cs2340.spacetrader.model.Skill
+import edu.gatech.cs2340.spacetrader.entity.Skill
 import edu.gatech.cs2340.spacetrader.viewmodel.SkillSelectionViewModel
 import kotlinx.android.synthetic.main.fragment_skill_selection.view.*
 
