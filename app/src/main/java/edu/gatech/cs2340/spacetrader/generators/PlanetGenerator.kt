@@ -2,10 +2,9 @@ package edu.gatech.cs2340.spacetrader.generators
 
 import edu.gatech.cs2340.spacetrader.entity.PlanetResource
 import edu.gatech.cs2340.spacetrader.model.Planet
-import edu.gatech.cs2340.spacetrader.model.SolarSystem
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
-class PlanetGenerator: Generator<Planet> {
+class PlanetGenerator: MappedGenerator<Planet> {
     val names = arrayOf(
         "Acamar",
         "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"
@@ -128,7 +127,7 @@ class PlanetGenerator: Generator<Planet> {
         "Zalkon",
         "Zuul"			// From the first Ghostbusters movie
     )
-    private var listPlace
+    private var listPlace = 0
     val resourceTypes = PlanetResource.values()
 
     init{
@@ -140,7 +139,7 @@ class PlanetGenerator: Generator<Planet> {
         var planets = (1 until 5).random()
 
         while(planets > 0) {
-            val coord = Coordinate()
+            val coord = Coordinate(0, 0)
             val resource = resourceTypes[(0 until resourceTypes.size - 1).random()]
             //val planet = Planet(names[listPlace], Coordinate(), )
             planets--
