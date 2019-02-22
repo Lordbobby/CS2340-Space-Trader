@@ -3,9 +3,9 @@ package edu.gatech.cs2340.spacetrader.viewmodel
 import android.util.Log
 import edu.gatech.cs2340.spacetrader.entity.Skill
 import edu.gatech.cs2340.spacetrader.entity.SkillsData
-import edu.gatech.cs2340.spacetrader.entity.validators.SkillValidator
 import edu.gatech.cs2340.spacetrader.util.DataType
 import edu.gatech.cs2340.spacetrader.util.SkilledData
+import edu.gatech.cs2340.spacetrader.validators.SkillValidator
 
 class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
     private val skills = SkillsData(mutableMapOf())

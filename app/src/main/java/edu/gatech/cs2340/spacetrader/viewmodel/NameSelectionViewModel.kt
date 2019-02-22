@@ -1,8 +1,8 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
-import edu.gatech.cs2340.spacetrader.entity.validators.NameValidator
 import edu.gatech.cs2340.spacetrader.util.DataType
 import edu.gatech.cs2340.spacetrader.util.NamedData
+import edu.gatech.cs2340.spacetrader.validators.NameValidator
 
 class NameSelectionViewModel: NamedData, ValidatableConfigViewModel {
     private var name: String
