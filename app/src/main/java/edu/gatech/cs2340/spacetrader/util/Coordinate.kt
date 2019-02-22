@@ -9,4 +9,18 @@ data class Coordinate(val x: Int, val y: Int) {
     override fun toString(): String {
         return "{x=$x,y=$y}"
     }
+
+    override fun equals(other: Any?): Boolean {
+        if (other is Coordinate) {
+            if(other.x == x && other.y == y) {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    override fun hashCode(): Int {
+        return x * 31 + y
+    }
 }
