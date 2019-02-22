@@ -3,7 +3,7 @@ package edu.gatech.cs2340.spacetrader.model
 import edu.gatech.cs2340.spacetrader.generators.MappedGenerator
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
-class SolarSystem(val coordinate: Coordinate, generator: MappedGenerator<Planet>) {
+class SolarSystem(generator: MappedGenerator<Planet>) {
     private val planets = generator.generate()
 
     fun addClosePlanets(map: MutableMap<Coordinate, Planet>, coord: Coordinate, range:Int) {

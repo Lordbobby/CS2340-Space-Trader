@@ -1,16 +1,16 @@
 package edu.gatech.cs2340.spacetrader.model
 
-import edu.gatech.cs2340.spacetrader.generators.MappedGenerator
+import edu.gatech.cs2340.spacetrader.generators.SetGenerator
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
-class Universe(generator: MappedGenerator<SolarSystem>) {
-    private val systems: Map<Coordinate, SolarSystem> = generator.generate()
+class Universe(generator: SetGenerator<SolarSystem>) {
+    private val systems: Set<SolarSystem> = generator.generate()
 
     fun calculateClosePlanets(coord: Coordinate, range: Int = 10): Map<Coordinate, Planet> {
         val closeSystems = hashMapOf<Coordinate, Planet>()
 
         systems.forEach {
-            it.value.addClosePlanets(closeSystems, coord, range)
+            it.addClosePlanets(closeSystems, coord, range)
         }
 
         return closeSystems
@@ -20,7 +20,7 @@ class Universe(generator: MappedGenerator<SolarSystem>) {
         val builder = StringBuilder("{")
 
         systems.forEach {
-            builder.append(it.value)
+            builder.append(it)
             builder.append(", ")
         }
 
