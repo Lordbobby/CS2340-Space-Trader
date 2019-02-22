@@ -1,9 +1,9 @@
 package edu.gatech.cs2340.spacetrader.model
 
-import edu.gatech.cs2340.spacetrader.generators.Generator
+import edu.gatech.cs2340.spacetrader.generators.MappedGenerator
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
-class Universe(generator: Generator<SolarSystem>) {
+class Universe(generator: MappedGenerator<SolarSystem>) {
     private val systems: Map<Coordinate, SolarSystem> = generator.generate()
 
     fun calculateClosePlanets(coord: Coordinate, range: Int = 10): Map<Coordinate, Planet> {
