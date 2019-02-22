@@ -1,6 +1,6 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
-import edu.gatech.cs2340.spacetrader.model.GameDifficulty
+import edu.gatech.cs2340.spacetrader.entity.GameDifficulty
 import edu.gatech.cs2340.spacetrader.util.DataType
 
 
