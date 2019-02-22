@@ -1,9 +1,9 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
 import android.util.Log
+import edu.gatech.cs2340.spacetrader.entity.GameDifficulty
 import edu.gatech.cs2340.spacetrader.entity.ShipType
 import edu.gatech.cs2340.spacetrader.entity.SkillsData
-import edu.gatech.cs2340.spacetrader.model.GameDifficulty
 import edu.gatech.cs2340.spacetrader.model.Player
 import edu.gatech.cs2340.spacetrader.util.DataType
 import edu.gatech.cs2340.spacetrader.views.interfaces.ConfigViewModelProvider

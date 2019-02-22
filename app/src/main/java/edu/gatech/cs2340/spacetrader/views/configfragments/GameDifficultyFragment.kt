@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import edu.gatech.cs2340.spacetrader.R
-import edu.gatech.cs2340.spacetrader.model.GameDifficulty
+import edu.gatech.cs2340.spacetrader.entity.GameDifficulty
 import edu.gatech.cs2340.spacetrader.viewmodel.ConfigViewModel
 import edu.gatech.cs2340.spacetrader.viewmodel.GameDifficultyViewModel
 import edu.gatech.cs2340.spacetrader.views.interfaces.ConfigViewModelProvider

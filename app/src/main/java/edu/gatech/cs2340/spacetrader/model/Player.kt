@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.model
 
+import edu.gatech.cs2340.spacetrader.entity.GameDifficulty
 import edu.gatech.cs2340.spacetrader.entity.Ship
 import edu.gatech.cs2340.spacetrader.entity.ShipType
 import edu.gatech.cs2340.spacetrader.entity.SkillsData

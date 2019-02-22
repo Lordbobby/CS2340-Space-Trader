@@ -5,4 +5,26 @@ import edu.gatech.cs2340.spacetrader.util.Coordinate
 
 class SolarSystem(val coordinate: Coordinate, generator: Generator<Planet>) {
     private val planets = generator.generate()
+
+    fun addClosePlanets(map: MutableMap<Coordinate, Planet>, coord: Coordinate, range:Int) {
+        planets.forEach {
+            if (it.key.calculateDistance(coord) < range) {
+                map[it.key] = it.value
+            }
+        }
+    }
+
+    override fun toString(): String {
+        val builder = StringBuilder("{")
+
+        planets.forEach{
+            builder.append(it.value)
+            builder.append(", ")
+        }
+
+        builder.delete(builder.length - 2, builder.length)
+        builder.append("}")
+
+        return builder.toString()
+    }
 }
