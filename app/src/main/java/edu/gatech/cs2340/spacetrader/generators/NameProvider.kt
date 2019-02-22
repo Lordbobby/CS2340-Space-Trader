@@ -123,14 +123,16 @@ class  NameProvider {
             "Zalkon",
             "Zuul"			// From the first Ghostbusters movie
     )
-    private val namePlace = 0
+    private var namePlace = 0
 
     fun next(): String {
-        return ""
+        val curr = names[namePlace]
+        namePlace++
+        return curr
     } //getNames
 
     fun getNamesLeft(): Int{
-        return 0
+        return names.size - namePlace - 1
     } //getNamesLeft
 
 } //NameProvider
