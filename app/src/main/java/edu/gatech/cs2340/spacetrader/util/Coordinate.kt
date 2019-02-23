@@ -21,6 +21,9 @@ data class Coordinate(val x: Int, val y: Int) {
     }
 
     override fun hashCode(): Int {
-        return x * 31 + y
+        var result: Int = 17
+        result = result * 31 + x
+        result = result * 31 + y
+        return result
     }
 }
