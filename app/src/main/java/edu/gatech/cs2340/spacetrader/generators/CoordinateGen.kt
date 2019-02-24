@@ -5,31 +5,18 @@ import edu.gatech.cs2340.spacetrader.util.Coordinate
 
 class CoordinateGen: Generator<Coordinate>{
     var currBase = Coordinate(0 , 0)
-    var baseGen = false
     private val occupiedCorrdinates: HashSet<Coordinate> = HashSet()
 
     fun generateBasePoint() {
-        baseGen = true
-        val basePoint = generate()
-        currBase = basePoint
-
+        val x = (5 until (Universe.MAX_X - 5)).random()
+        val y = (5 until (Universe.MAX_Y - 5)).random()
+        currBase = Coordinate(x, y)
     } //generateBasePoint
 
     override fun generate(): Coordinate {
-        var coordinate: Coordinate
-        var x: Int
-        var y: Int
-        if(baseGen) {
-            //generates random values of the coordinates
-            x = (0 until Universe.MAX_X).random()
-            y = (0 until Universe.MAX_Y).random()
-            coordinate = linearProbe(x, y, 2)
-            baseGen = false
-        } else {
-            x = ((Universe.MAX_X - 5) until (Universe.MAX_X + 5)).random()
-            y = ((Universe.MAX_Y - 5) until (Universe.MAX_Y + 5)).random()
-            coordinate = linearProbe(x, y, 1)
-        }
+        val x = ((currBase.x - 5) until (currBase.x + 5)).random()
+        val y = ((currBase.y - 5) until (currBase.y + 5)).random()
+        val coordinate = linearProbe(x, y, 1)
 
         occupiedCorrdinates.add(coordinate)
         return coordinate

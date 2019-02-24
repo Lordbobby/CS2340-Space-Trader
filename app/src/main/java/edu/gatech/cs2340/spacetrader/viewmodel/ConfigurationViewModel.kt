@@ -36,7 +36,7 @@ class ConfigurationViewModel {
         val diff = dataMap[DataType.DIFFICULTY] as GameDifficulty
 
         this.diff = diff
-        createPlayer(name, skills, diff)
+        createPlayer(name, skills)
         return null
     }
 
@@ -47,8 +47,8 @@ class ConfigurationViewModel {
     }
 
     //creates a player and logs the data to the logcat if player is valid
-    private fun createPlayer(name: String, skill: SkillsData, difficulty: GameDifficulty) {
-        player = Player(name, skill, difficulty, ShipType.GNAT)
+    private fun createPlayer(name: String, skill: SkillsData) {
+        player = Player(name, skill, ShipType.GNAT)
         Log.d("SSVM", player.toString())
     } //createPlayer
 } //ConfigurationViewModel
