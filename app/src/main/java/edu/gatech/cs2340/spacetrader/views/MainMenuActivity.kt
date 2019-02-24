@@ -19,6 +19,10 @@ class MainMenuActivity : AppCompatActivity() {
             val intent = Intent(this, ConfigurationActivity::class.java)
             startActivity(intent)
         }
+        button.setOnClickListener { view ->
+            val intent = Intent(this, UniverseMapActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }
