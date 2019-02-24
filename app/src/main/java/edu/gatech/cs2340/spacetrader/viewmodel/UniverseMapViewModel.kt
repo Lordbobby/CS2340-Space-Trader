@@ -43,8 +43,8 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
 
         param.height = GridLayout.LayoutParams.WRAP_CONTENT
         param.width = GridLayout.LayoutParams.WRAP_CONTENT
-        param.rightMargin = 5
-        param.topMargin = 5
+        param.rightMargin = 20
+        param.topMargin = 20
         param.setGravity(Gravity.CENTER)
         param.columnSpec = GridLayout.spec(col)
         param.rowSpec = GridLayout.spec(row)

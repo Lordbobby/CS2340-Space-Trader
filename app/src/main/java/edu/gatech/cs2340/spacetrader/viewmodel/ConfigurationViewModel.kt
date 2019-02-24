@@ -15,7 +15,7 @@ class ConfigurationViewModel {
     private var diff: GameDifficulty? = null
 
     fun onDataSubmission(vmProviders: List<ConfigViewModelProvider>): String? {
-        var dataMap = mutableMapOf<DataType, Any>()
+        val dataMap = mutableMapOf<DataType, Any>()
 
         for (provider in vmProviders) {
             val vm = provider.provideVM()
