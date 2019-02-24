@@ -7,11 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.entity.Skill
+import edu.gatech.cs2340.spacetrader.viewmodel.ConfigViewModel
 import edu.gatech.cs2340.spacetrader.viewmodel.SkillSelectionViewModel
+import edu.gatech.cs2340.spacetrader.views.interfaces.ConfigViewModelProvider
 import kotlinx.android.synthetic.main.fragment_skill_selection.view.*
 
-class SkillFragment : Fragment(){
-    val skillVm = SkillSelectionViewModel()
+class SkillFragment : Fragment() {
+    private val skillVm = SkillSelectionViewModel()
 
     companion object {
         fun newInstance(): SkillFragment {
@@ -119,4 +121,7 @@ class SkillFragment : Fragment(){
         }
     }
 
+//    override fun provideVM(): ConfigViewModel {
+//        return skillVm
+//    }
 }

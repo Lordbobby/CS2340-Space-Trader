@@ -1,6 +1,6 @@
 package edu.gatech.cs2340.spacetrader.entity
 
-data class SkillsData(var skillsMap: MutableMap<Skill, Int>) {
+data class SkillsData(val skillsMap: MutableMap<Skill, Int>) {
 
     init{
         for(s: Skill in Skill.values()) {
@@ -17,7 +17,7 @@ data class SkillsData(var skillsMap: MutableMap<Skill, Int>) {
     }
 
     override fun toString(): String {
-        var s: String = ""
+        var s = ""
         skillsMap.forEach{
             (skill, value) -> s += "$skill: $value, "
         }

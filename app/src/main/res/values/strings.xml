@@ -17,4 +17,9 @@
     <string name="name_hint">Enter Your Name</string>
     <string name="difficulty">Difficulty</string>
     <string name="startGame">Start Game</string>
+    <string name="exitGame">EXIT GAME</string>
+    <string name="title_activity_universe_map">UniverseMapActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
