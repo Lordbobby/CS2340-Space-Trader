@@ -13,7 +13,7 @@ import edu.gatech.cs2340.spacetrader.viewmodel.NameSelectionViewModel
 import edu.gatech.cs2340.spacetrader.views.interfaces.ConfigViewModelProvider
 import kotlinx.android.synthetic.main.fragment_name_selection.*
 
-class NameFragment : Fragment(), ConfigViewModelProvider {
+class NameFragment : Fragment() {
     private val nameVm = NameSelectionViewModel()
 
     override fun onCreateView(
@@ -40,7 +40,7 @@ class NameFragment : Fragment(), ConfigViewModelProvider {
         })
     }
 
-    override fun provideVM(): ConfigViewModel {
-        return nameVm
-    }
+//    override fun provideVM(): ConfigViewModel {
+//        return nameVm
+//    }
 }
