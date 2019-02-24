@@ -5,12 +5,12 @@ import edu.gatech.cs2340.spacetrader.entity.Skill
 import edu.gatech.cs2340.spacetrader.entity.SkillsData
 import edu.gatech.cs2340.spacetrader.util.DataType
 import edu.gatech.cs2340.spacetrader.util.SkilledData
-//import edu.gatech.cs2340.spacetrader.validators.SkillValidator
+import edu.gatech.cs2340.spacetrader.validators.SkillValidator
 
-class SkillSelectionViewModel: SkilledData {
+class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
     private val skills = SkillsData(mutableMapOf())
     private var usedSkillPoints = 0
-//    private val validator: SkillValidator = SkillValidator(this)
+    private val validator: SkillValidator = SkillValidator(this)
 
     fun addSkillPoint(skill : Skill) {
         //Log.d("SSVM", "Adding: ${usedSkillPoints} + 1 = ${usedSkillPoints + 1}")
@@ -41,21 +41,21 @@ class SkillSelectionViewModel: SkilledData {
         return usedSkillPoints == MAX_SKILL_POINTS
     }
 
-//    override fun validate(): Boolean {
-//        return validator.validate()
-//    }
+    override fun validate(): Boolean {
+        return validator.validate()
+    }
 
-//    override fun getInvalidMessage(): String {
-//        return "All 16 skill points must be allocated!"
-//    }
+    override fun getInvalidMessage(): String {
+        return "All 16 skill points must be allocated!"
+    }
 
-//    override fun processData(): Any {
-//        return skills
-//    }
+    override fun processData(): Any {
+        return skills
+    }
 
-//    override fun getDataType(): DataType {
-//        return DataType.SKILLS
-//    }
+    override fun getDataType(): DataType {
+        return DataType.SKILLS
+    }
 
     companion object {
         const val MAX_SKILL_POINTS = 16

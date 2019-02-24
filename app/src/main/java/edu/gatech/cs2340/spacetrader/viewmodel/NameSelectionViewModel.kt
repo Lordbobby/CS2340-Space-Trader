@@ -2,15 +2,15 @@ package edu.gatech.cs2340.spacetrader.viewmodel
 
 import edu.gatech.cs2340.spacetrader.util.DataType
 import edu.gatech.cs2340.spacetrader.util.NamedData
-//import edu.gatech.cs2340.spacetrader.validators.NameValidator
+import edu.gatech.cs2340.spacetrader.validators.NameValidator
 
-class NameSelectionViewModel: NamedData {
+class NameSelectionViewModel: NamedData, ValidatableConfigViewModel {
     private var name: String
-//    private val validator: NameValidator
+    private val validator: NameValidator
 
     init {
         name = ""
-//        validator = NameValidator(this)
+        validator = NameValidator(this)
     }
 
     fun setName(name: String) {
@@ -25,19 +25,19 @@ class NameSelectionViewModel: NamedData {
         return getName().isNotEmpty()
     }
 
-//    override fun validate(): Boolean {
-//        return validator.validate()
-//    }
+    override fun validate(): Boolean {
+        return validator.validate()
+    }
 
-//    override fun getInvalidMessage(): String {
-//        return "The name can't be empty!"
-//    }
+    override fun getInvalidMessage(): String {
+        return "The name can't be empty!"
+    }
 
-//    override fun processData(): Any {
-//        return name
-//    }
+    override fun processData(): Any {
+        return name
+    }
 
-//    override fun getDataType(): DataType {
-//        return DataType.NAME
-//    }
+    override fun getDataType(): DataType {
+        return DataType.NAME
+    }
 }
