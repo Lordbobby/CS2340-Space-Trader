@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.generators
 
+import android.util.Log
 import edu.gatech.cs2340.spacetrader.entity.PlanetResource
 import edu.gatech.cs2340.spacetrader.entity.TechLevel
 import edu.gatech.cs2340.spacetrader.model.Planet
@@ -12,7 +13,7 @@ class PlanetGenerator(private var planets:Int, private val names: NameProvider, 
     override fun generate(): Map<Coordinate, Planet> {
         val solarSystem = HashMap<Coordinate, Planet>()
         coordinateGen.generateBasePoint()
-
+        Log.d("PlanetGenerator", "Planets:$planets Names:${names.getNamesLeft()}")
         while(planets > 0) {
             val coord = coordinateGen.generate()
             val resource = resourceTypes[(0 until resourceTypes.size - 1).random()]

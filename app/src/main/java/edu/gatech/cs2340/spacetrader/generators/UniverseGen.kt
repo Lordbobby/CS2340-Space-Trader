@@ -10,8 +10,8 @@ class UniverseGen: SetGenerator<SolarSystem> {
         val nameProvider = NameProvider()
         val coordGen = CoordinateGen()
 
-        while (nameProvider.getNamesLeft() > 0) {
-            val numPlanets = Random.nextInt(Math.max(nameProvider.getNamesLeft(), 5))
+        while (nameProvider.getNamesLeft() > 60) {
+            val numPlanets = Math.min(nameProvider.getNamesLeft(), Random.nextInt(5) + 1)
             val sysGenerator = PlanetGenerator(numPlanets, nameProvider, coordGen)
             val system = SolarSystem(sysGenerator)
 

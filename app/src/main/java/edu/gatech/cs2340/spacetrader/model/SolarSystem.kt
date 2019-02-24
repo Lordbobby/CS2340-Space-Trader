@@ -14,6 +14,10 @@ class SolarSystem(generator: MappedGenerator<Planet>) {
         }
     }
 
+    fun getRandomPlanet(): Planet {
+        return planets.values.random()
+    }
+
     override fun toString(): String {
         val builder = StringBuilder("{")
 

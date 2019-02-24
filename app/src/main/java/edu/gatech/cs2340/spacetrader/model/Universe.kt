@@ -6,7 +6,7 @@ import edu.gatech.cs2340.spacetrader.util.Coordinate
 class Universe(generator: SetGenerator<SolarSystem>) {
     private val systems: Set<SolarSystem> = generator.generate()
 
-    fun calculateClosePlanets(coord: Coordinate, range: Int = 10): Map<Coordinate, Planet> {
+    fun calculateClosePlanets(coord: Coordinate, range: Int = 12): Map<Coordinate, Planet> {
         val closeSystems = hashMapOf<Coordinate, Planet>()
 
         systems.forEach {
@@ -14,6 +14,10 @@ class Universe(generator: SetGenerator<SolarSystem>) {
         }
 
         return closeSystems
+    }
+
+    fun getRandomPlanet(): Planet {
+        return systems.random().getRandomPlanet()
     }
 
     override fun toString(): String {

@@ -15,9 +15,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <android.support.v7.widget.GridLayout
+            <GridLayout
                 android:id="@+id/universe_gridlayout"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:visibility="visible"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -25,13 +25,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Button" />
-
-            </android.support.v7.widget.GridLayout>
+            </GridLayout>
         </HorizontalScrollView>
     </ScrollView>
 

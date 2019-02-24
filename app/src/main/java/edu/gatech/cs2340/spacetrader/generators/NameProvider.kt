@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.spacetrader.generators
 
 class  NameProvider {
-    private val names = arrayOf(
+    private val names = arrayListOf(
             "Acamar",
             "Adahn",		// The alternate personality for The Nameless One in "Planescape: Torment"
             "Aldea",
@@ -126,13 +126,14 @@ class  NameProvider {
     private var namePlace = 0
 
     fun next(): String {
-        val curr = names[namePlace]
-        namePlace++
+        val curr = names.random()
+        names.remove(curr)
+
         return curr
     } //getNames
 
     fun getNamesLeft(): Int{
-        return names.size - namePlace - 1
+        return names.size
     } //getNamesLeft
 
 } //NameProvider

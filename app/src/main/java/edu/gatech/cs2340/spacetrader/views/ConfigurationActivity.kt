@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.viewmodel.ConfigurationViewModel
@@ -27,9 +28,16 @@ class ConfigurationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_configuration)
 
         start_game.setOnClickListener {
-            val toastText: String = configVM.onDataSubmission(vmProviders)
+            val toastText: String? = configVM.onDataSubmission(vmProviders)
 
-            Toast.makeText(applicationContext, toastText, Toast.LENGTH_SHORT).show()
+            if (toastText != null) {
+                Toast.makeText(applicationContext, toastText, Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            configVM.startGame()
+            Log.d("TEST", "TEST")
+            startActivity(Intent(this, UniverseMapActivity::class.java))
         } //setOnClickListener
 
         exit_game.setOnClickListener {
