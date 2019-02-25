@@ -8,7 +8,7 @@ class MapGenerator(private val provider: UniverseProvider, private val centerCoo
 
     override fun generate(): Map<Coordinate, Planet> {
         val universe = provider.provide()
-        val closePlanets = universe.calculateClosePlanets(centerCoord)
+        val closePlanets = universe.calculateClosePlanets(centerCoord, rows / 2)
         val halfRow = rows / 2
         val halfCol = cols / 2
         val map = mutableMapOf<Coordinate, Planet>()

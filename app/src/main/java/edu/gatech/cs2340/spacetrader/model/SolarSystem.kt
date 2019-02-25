@@ -1,10 +1,18 @@
 package edu.gatech.cs2340.spacetrader.model
 
+import edu.gatech.cs2340.spacetrader.generators.ColorGenerator
 import edu.gatech.cs2340.spacetrader.generators.MappedGenerator
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
 class SolarSystem(generator: MappedGenerator<Planet>) {
     private val planets = generator.generate()
+    val color = ColorGenerator().generate()
+
+    init {
+        planets.values.forEach {
+            it.solarSystem = this
+        }
+    }
 
     fun addClosePlanets(map: MutableMap<Coordinate, Planet>, coord: Coordinate, range:Int) {
         planets.forEach {
