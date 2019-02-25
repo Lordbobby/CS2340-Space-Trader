@@ -11,7 +11,7 @@ import edu.gatech.cs2340.spacetrader.views.interfaces.ConfigViewModelProvider
 import kotlinx.android.synthetic.main.activity_configuration.*
 
 class ConfigurationActivity : AppCompatActivity() {
-    private val configVM = ConfigurationViewModel()
+    private val configVM = ConfigurationViewModel(this)
     private val vmProviders = ArrayList<ConfigViewModelProvider>()
 
     override fun onAttachFragment(fragment: Fragment?) {

@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import edu.gatech.cs2340.spacetrader.entity.GameDifficulty
 import edu.gatech.cs2340.spacetrader.entity.ShipType
@@ -7,9 +8,11 @@ import edu.gatech.cs2340.spacetrader.entity.SkillsData
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Player
 import edu.gatech.cs2340.spacetrader.util.DataType
+import edu.gatech.cs2340.spacetrader.util.Size
 import edu.gatech.cs2340.spacetrader.views.interfaces.ConfigViewModelProvider
+import kotlinx.android.synthetic.main.activity_universe_map.*
 
-class ConfigurationViewModel {
+class ConfigurationViewModel(private val view: AppCompatActivity) {
 
     private var player: Player? = null
     private var diff: GameDifficulty? = null
@@ -42,7 +45,11 @@ class ConfigurationViewModel {
 
     fun startGame() {
         val gameMan = GameManager(player!!, diff!!)
+        val layout = view.container
+        val width = layout.width
+        val height = layout.height
 
+        GameManager.SIZE = Size(width, height)
         GameManager.INSTANCE = gameMan
     }
 

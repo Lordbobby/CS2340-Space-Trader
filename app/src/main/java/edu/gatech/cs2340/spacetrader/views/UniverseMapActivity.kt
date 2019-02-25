@@ -14,15 +14,9 @@ class UniverseMapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_universe_map)
-    }
 
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
+        val gridLayout: GridLayout = findViewById(R.id.universe_gridlayout)
 
-        if (hasFocus) {
-            val gridLayout: GridLayout = findViewById(R.id.universe_gridlayout)
-
-            viewModel.populateGridLayout(gridLayout)
-        }
+        viewModel.populateGridLayout(gridLayout)
     }
 }

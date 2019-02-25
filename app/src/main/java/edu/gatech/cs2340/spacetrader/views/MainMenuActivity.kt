@@ -9,6 +9,7 @@ import edu.gatech.cs2340.spacetrader.entity.ShipType
 import edu.gatech.cs2340.spacetrader.entity.SkillsData
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Player
+import edu.gatech.cs2340.spacetrader.util.Size
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainMenuActivity : AppCompatActivity() {
@@ -24,7 +25,11 @@ class MainMenuActivity : AppCompatActivity() {
         }
         button.setOnClickListener {
             val gameMan = GameManager(Player("Test", SkillsData(mutableMapOf()), ShipType.GNAT), GameDifficulty.BEGINNER)
+            val layout = coordinatorLayout
+            val width = layout.width
+            val height = layout.height
 
+            GameManager.SIZE = Size(width, height)
             GameManager.INSTANCE = gameMan
             val intent = Intent(this, UniverseMapActivity::class.java)
             startActivity(intent)

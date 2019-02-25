@@ -13,7 +13,6 @@ import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
 import kotlinx.android.synthetic.main.activity_universe_map.*
 
-
 class UniverseMapViewModel(private val view: AppCompatActivity) {
 
     fun populateGridLayout(gridLayout: GridLayout) {
@@ -52,7 +51,7 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
 
     private fun getLayoutParams(row: Int, col: Int): GridLayout.LayoutParams {
         val param = GridLayout.LayoutParams()
-        val layout = view.container
+        val layout = GameManager.SIZE!!
         val width = layout.width
         val height = layout.height
 
@@ -97,7 +96,7 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
 
         private fun calcTextPosition(row: Int, col: Int): IntArray {
             val pos = IntArray(2)
-            val layout = view.container
+            val layout = GameManager.SIZE!!
             val width = layout.width / ROWS
             val height = layout.height / COLUMNS
 

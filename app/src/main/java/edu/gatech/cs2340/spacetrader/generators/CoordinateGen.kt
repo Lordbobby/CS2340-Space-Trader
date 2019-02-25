@@ -16,7 +16,7 @@ class CoordinateGen: Generator<Coordinate>{
     override fun generate(): Coordinate {
         val x = ((currBase.x - 5) until (currBase.x + 5)).random()
         val y = ((currBase.y - 5) until (currBase.y + 5)).random()
-        val coordinate = linearProbe(x, y, 1)
+        val coordinate = linearProbe(x, y, 2)
 
         occupiedCorrdinates.add(coordinate)
         return coordinate

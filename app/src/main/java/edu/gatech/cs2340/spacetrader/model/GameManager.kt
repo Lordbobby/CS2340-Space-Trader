@@ -3,6 +3,7 @@ package edu.gatech.cs2340.spacetrader.model
 import edu.gatech.cs2340.spacetrader.entity.GameDifficulty
 import edu.gatech.cs2340.spacetrader.generators.UniverseGen
 import edu.gatech.cs2340.spacetrader.model.interfaces.UniverseProvider
+import edu.gatech.cs2340.spacetrader.util.Size
 
 class GameManager(private val player: Player, val difficulty: GameDifficulty): UniverseProvider {
 
@@ -15,6 +16,7 @@ class GameManager(private val player: Player, val difficulty: GameDifficulty): U
     }
 
     companion object {
-        var INSTANCE: GameManager? = null;
+        var INSTANCE: GameManager? = null
+        var SIZE: Size? = null
     }
 }
