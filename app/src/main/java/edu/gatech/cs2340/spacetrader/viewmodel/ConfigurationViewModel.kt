@@ -10,7 +10,7 @@ import edu.gatech.cs2340.spacetrader.model.Player
 import edu.gatech.cs2340.spacetrader.util.DataType
 import edu.gatech.cs2340.spacetrader.util.Size
 import edu.gatech.cs2340.spacetrader.views.interfaces.ConfigViewModelProvider
-import kotlinx.android.synthetic.main.activity_universe_map.*
+import kotlinx.android.synthetic.main.activity_configuration.*
 
 class ConfigurationViewModel(private val view: AppCompatActivity) {
 
@@ -45,7 +45,7 @@ class ConfigurationViewModel(private val view: AppCompatActivity) {
 
     fun startGame() {
         val gameMan = GameManager(player!!, diff!!)
-        val layout = view.container
+        val layout = view.relativeLayout
         val width = layout.width
         val height = layout.height
 
