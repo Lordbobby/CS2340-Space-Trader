@@ -18,5 +18,9 @@ class PlanetMenuActivity: AppCompatActivity() {
                 "Welcome to " + GameManager.INSTANCE!!.currentPlanet.name + "! What would you like to do?"
         )
 
+        market_button.setOnClickListener{
+
+        } //marketbutton listener
+
     } //onCreate
 } //PlanetMenuActivity

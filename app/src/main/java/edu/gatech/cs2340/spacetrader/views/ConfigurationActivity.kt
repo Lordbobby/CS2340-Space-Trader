@@ -1,9 +1,11 @@
 package edu.gatech.cs2340.spacetrader.views
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.viewmodel.ConfigurationViewModel
@@ -41,6 +43,6 @@ class ConfigurationActivity : AppCompatActivity() {
         exit_game.setOnClickListener {
             val intent = Intent(this, MainMenuActivity::class.java)
             startActivity(intent)
-        }
+        } //exitGame set on click
     } //onCreate
 } //ConfigurationActivity

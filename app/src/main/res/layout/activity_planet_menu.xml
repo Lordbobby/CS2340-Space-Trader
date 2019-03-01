@@ -13,4 +13,11 @@
         android:textSize="20sp"
         android:textColor="@android:color/black"
         />
+
+    <Button
+        android:id="@+id/market_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Market"
+        android:layout_alignBottom="@+id/welcome"/>
 </RelativeLayout>

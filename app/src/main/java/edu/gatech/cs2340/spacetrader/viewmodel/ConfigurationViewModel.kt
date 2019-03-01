@@ -45,7 +45,7 @@ class ConfigurationViewModel(private val view: AppCompatActivity) {
 
     fun startGame() {
         val gameMan = GameManager(player!!, diff!!)
-        val layout = view.relativeLayout
+        val layout = view.configScreen
         val width = layout.width
         val height = layout.height
 
