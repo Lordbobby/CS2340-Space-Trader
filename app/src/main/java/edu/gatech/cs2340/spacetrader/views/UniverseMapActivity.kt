@@ -18,5 +18,6 @@ class UniverseMapActivity : AppCompatActivity() {
         val gridLayout: GridLayout = findViewById(R.id.universe_gridlayout)
 
         viewModel.populateGridLayout(gridLayout)
-    }
-}
+    } //onCreate
+
+} //UniverseMapActivity

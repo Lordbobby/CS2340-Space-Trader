@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
+import android.content.Intent
+import android.media.Image
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Gravity
@@ -11,6 +13,7 @@ import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.generators.MapGenerator
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
+import edu.gatech.cs2340.spacetrader.views.PlanetMenuActivity
 import kotlinx.android.synthetic.main.activity_universe_map.*
 
 class UniverseMapViewModel(private val view: AppCompatActivity) {
@@ -44,9 +47,9 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
 
             val holder = child as PlanetHolder
 
-            holder.initialize(it.value, it.key.x, it.key.y)
+            holder.initialize(it.value, it.key.x, it.key.y, this)
         }
-    }
+    } //populateGridLayout
 
 
     private fun getLayoutParams(row: Int, col: Int): GridLayout.LayoutParams {
@@ -62,11 +65,18 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
         param.rowSpec = GridLayout.spec(row)
 
         return param
-    }
+    } //getLayoutParams
 
     private fun getIndex(row: Int, col: Int): Int {
         return row + (col * ROWS)
-    }
+    } //getIndex
+
+    private fun planetPushed(planet: Planet) {
+        if(GameManager.INSTANCE!!.currentPlanet == planet) {
+            Log.d("UniverseMapViewModel", "planet menu")
+            view.startActivity(Intent(view, PlanetMenuActivity::class.java))
+        } //if planet pressed is current planet
+    } //planetPushed
 
     private class PlanetHolder(private val view: AppCompatActivity): LinearLayout(view) {
         private val textView: TextView = TextView(view)
@@ -82,7 +92,7 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
             this.addView(image)
         }
 
-        fun initialize(planet: Planet, row: Int, col: Int) {
+        fun initialize(planet: Planet, row: Int, col: Int, UniverseMapVM: UniverseMapViewModel) {
             val pos = calcTextPosition(row, col)
 
             textView.x = pos[0].toFloat()
@@ -92,6 +102,9 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
 
             image.setImageResource(R.drawable.planet_button)
             image.setColorFilter(planet.solarSystem!!.color)
+            image.setOnClickListener{
+                UniverseMapVM.planetPushed(planet)
+            } //image onClickListener
         }
 
         private fun calcTextPosition(row: Int, col: Int): IntArray {

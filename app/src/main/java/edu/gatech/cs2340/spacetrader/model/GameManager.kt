@@ -11,6 +11,8 @@ class GameManager(private val player: Player, val difficulty: GameDifficulty): U
     var currentPlanet: Planet = universe.getRandomPlanet()
         private set
 
+
+
     override fun provide(): Universe {
         return universe
     }

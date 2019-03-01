@@ -6,6 +6,8 @@ import edu.gatech.cs2340.spacetrader.util.Coordinate
 class Universe(generator: SetGenerator<SolarSystem>) {
     private val systems: Set<SolarSystem> = generator.generate()
 
+
+
     fun calculateClosePlanets(coord: Coordinate, range: Int = 7): Map<Coordinate, Planet> {
         val closeSystems = hashMapOf<Coordinate, Planet>()
 
