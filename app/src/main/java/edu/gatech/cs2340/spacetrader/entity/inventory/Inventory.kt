@@ -8,7 +8,6 @@ interface Inventory {
     val inv: MutableMap<Good, Int>
     var cap: Int
     var size: Int
-    var planet: Planet
 
     fun addToInv(good: Good, v: Int) {
         if (size + v < cap) {

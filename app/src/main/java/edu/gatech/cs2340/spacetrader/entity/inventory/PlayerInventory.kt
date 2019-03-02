@@ -11,14 +11,12 @@ class PlayerInventory(cap: Int, goods: MutableMap<Good, Int>): Inventory {
     override val inv: MutableMap<Good, Int> = goods
     override var cap: Int = cap
     override var size: Int = 0
-    override var planet = GameManager.INSTANCE!!.currentPlanet
 
     fun valueOf(): Int {
-        val total = 0
-//        inv.forEach {
-//            total +=
-//        }
-        //TODO Calc value of inventory
+        var total = 0
+        inv.forEach {
+            total += it.key.price(GameManager.INSTANCE!!.currentPlanet)
+        }
         return total
     }
 
