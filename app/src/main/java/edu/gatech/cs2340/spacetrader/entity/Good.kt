@@ -1,8 +1,8 @@
 package edu.gatech.cs2340.spacetrader.entity
 
-enum class Goods(val MTLP: Int, val MTLU: Int, val TTP: Int, val basePrice: Int,
-                 val IPL: Int, val Var: Int, val IE: String, val CR: String,
-                 val ER: String, val MTL: Int, val MTH: Int) {
+enum class Good(val MTLP: Int, val MTLU: Int, val TTP: Int, val basePrice: Int,
+                val IPL: Int, val Var: Int, val IE: String, val CR: String,
+                val ER: String, val MTL: Int, val MTH: Int) {
     Water(0, 0, 2, 30, 3, 4, "DROUGHT", "LOTSOFWATER", "DESERT", 30, 50),
     Furs(0, 0, 0, 250, 10, 10, "COLD", "RICHFAUNA", "LIFELESS", 230, 280),
     Food(1, 0, 1, 100, 5, 5, "CROPFAIL", "RICHSOIL", "POORSOIL", 90, 160),
