@@ -34,7 +34,7 @@ class ConfigurationViewModel(private val view: AppCompatActivity) {
             dataMap[vm.getDataType()] = vm.processData()
         }
 
-        val name = dataMap[DataType.NAME] as String
+        val name = dataMap[DataType.NAME]!! as String
         val skills = dataMap[DataType.SKILLS] as SkillsData
         val diff = dataMap[DataType.DIFFICULTY] as GameDifficulty
 

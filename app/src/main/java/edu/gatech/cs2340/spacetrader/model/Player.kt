@@ -9,6 +9,9 @@ class Player(val name: String, var credits: Int, var skills: SkillsData, var shi
     constructor(name: String, skills: SkillsData, ship: ShipType) : this(name, 1000, skills, Ship())
 
     override fun toString(): String {
-        return "The Player: {$name} with skills in {$skills}"
+        return "Player: {$name}\n" +
+                "Credits: {$credits}" +
+                "Skills: {$skills}\n" +
+                "Ship: {$ship}\n"
     }
 } //Player

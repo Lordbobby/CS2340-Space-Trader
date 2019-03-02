@@ -10,6 +10,7 @@ class GameManager(private val player: Player, val difficulty: GameDifficulty): U
     private val universe: Universe = Universe(UniverseGen())
     var currentPlanet: Planet = universe.getRandomPlanet()
         private set
+    val MAX_GOOD_PER_PLANET: Int = 25
 
 
 
