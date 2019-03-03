@@ -12,7 +12,6 @@ class Ship(type: ShipType) {
         }
 
     val inventory: PlayerInventory = PlayerInventory(type.cargoCap)
-    //TODO update with Good type once made
 
     fun updateShip(shipType: ShipType) {
         //TODO Implement
