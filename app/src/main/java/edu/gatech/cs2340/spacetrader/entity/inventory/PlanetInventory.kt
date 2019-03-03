@@ -1,11 +1,10 @@
 package edu.gatech.cs2340.spacetrader.entity.inventory
 
 import edu.gatech.cs2340.spacetrader.entity.Good
-import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.util.Constants
 
-class PlanetInventory(planet: Planet): Inventory {
+class PlanetInventory(planet: Planet): Inventory() {
     override val inv: MutableMap<Good, Int> = mutableMapOf()
     override var cap: Int = Int.MAX_VALUE
     override var size: Int = 0

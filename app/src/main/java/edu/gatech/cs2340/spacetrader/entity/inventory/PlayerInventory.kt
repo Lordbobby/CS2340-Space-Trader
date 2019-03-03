@@ -2,9 +2,8 @@ package edu.gatech.cs2340.spacetrader.entity.inventory
 
 import edu.gatech.cs2340.spacetrader.entity.Good
 import edu.gatech.cs2340.spacetrader.model.GameManager
-import java.lang.IllegalArgumentException
 
-class PlayerInventory(cap: Int, goods: MutableMap<Good, Int>): Inventory {
+class PlayerInventory(cap: Int, goods: MutableMap<Good, Int>): Inventory() {
 
     constructor(cap: Int) : this(cap, mutableMapOf())
 

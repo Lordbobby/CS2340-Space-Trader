@@ -10,7 +10,6 @@ import edu.gatech.cs2340.spacetrader.viewmodel.UniverseMapViewModel
 class UniverseMapActivity : AppCompatActivity() {
     private val viewModel = UniverseMapViewModel(this)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_universe_map)

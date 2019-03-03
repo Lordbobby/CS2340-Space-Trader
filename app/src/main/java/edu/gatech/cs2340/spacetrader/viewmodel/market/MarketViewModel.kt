@@ -8,14 +8,14 @@ import android.widget.TextView
 import edu.gatech.cs2340.spacetrader.entity.Good
 import edu.gatech.cs2340.spacetrader.entity.inventory.Inventory
 import edu.gatech.cs2340.spacetrader.model.GameManager
+import edu.gatech.cs2340.spacetrader.model.transaction.TransactionMode
 import edu.gatech.cs2340.spacetrader.views.market.GoodQuantityPickerDialog
-import edu.gatech.cs2340.spacetrader.views.market.MarketMode
 
 class MarketViewModel(val activity: AppCompatActivity) {
-    fun populateMarketList(linearLayout: LinearLayout, mode: MarketMode) {
+    fun populateMarketList(linearLayout: LinearLayout, mode: TransactionMode) {
         val inventory: Inventory
 
-        if(mode == MarketMode.BUY) {
+        if(mode == TransactionMode.BUY) {
             inventory = GameManager.INSTANCE!!.currentPlanet.inventory
             Log.d("market", "buying ${inventory.inv.size}")
         } else {
@@ -30,7 +30,7 @@ class MarketViewModel(val activity: AppCompatActivity) {
         } //for each item in inventory
     } //populateMarketList
 
-    private fun makeGoodCard(good: Good, quantity: Int, mode: MarketMode): CardView {
+    private fun makeGoodCard(good: Good, quantity: Int, mode: TransactionMode): CardView {
         val goodCard = CardView(activity)
         val cardLinear = LinearLayout(activity)
         val goodName = TextView(activity)
@@ -50,7 +50,7 @@ class MarketViewModel(val activity: AppCompatActivity) {
 
         goodCard.addView(cardLinear)
         goodCard.setOnClickListener {
-            val dialog = GoodQuantityPickerDialog(activity, good, quantity, mode)
+            val dialog = GoodQuantityPickerDialog(activity, good, quantity, mode.provide())
             dialog.show()
         } //goodCard click Listener
         return goodCard

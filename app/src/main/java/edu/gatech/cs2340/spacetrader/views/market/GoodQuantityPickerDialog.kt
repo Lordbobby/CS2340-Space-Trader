@@ -5,11 +5,12 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.entity.Good
+import edu.gatech.cs2340.spacetrader.model.transaction.Transactional
 import edu.gatech.cs2340.spacetrader.viewmodel.market.GoodQuantityPickerViewModel
 import kotlinx.android.synthetic.main.dialog_good_quantity.*
 
-class GoodQuantityPickerDialog(private val activity: AppCompatActivity, val good: Good, val quantity: Int, val mode: MarketMode): Dialog(activity) {
-    val viewModel = GoodQuantityPickerViewModel(this, activity)
+class GoodQuantityPickerDialog(private val activity: AppCompatActivity, val good: Good, private val quantity: Int, private val transactional: Transactional): Dialog(activity) {
+    private val viewModel = GoodQuantityPickerViewModel(this, activity)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,7 +22,7 @@ class GoodQuantityPickerDialog(private val activity: AppCompatActivity, val good
         } //cancel button set click listener
 
         confirm_button.setOnClickListener{
-            viewModel.confirmTransaction(good, quantity_picker.value, mode)
+            viewModel.confirmTransaction(good, quantity_picker.value, transactional)
 
             //updates the information on the screen
             val oldIntent = activity.intent
