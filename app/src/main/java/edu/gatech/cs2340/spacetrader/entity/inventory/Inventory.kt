@@ -11,7 +11,7 @@ interface Inventory {
 
     fun addToInv(good: Good, v: Int) {
         if (size + v < cap) {
-            if (inv[good] == null) v else inv[good]!! + v
+            if (inv[good] == null) inv.put(good, v) else inv[good]!! + v
             size += v
         } else {
             throw IllegalArgumentException(

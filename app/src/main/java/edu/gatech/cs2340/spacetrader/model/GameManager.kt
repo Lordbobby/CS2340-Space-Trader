@@ -5,12 +5,11 @@ import edu.gatech.cs2340.spacetrader.generators.UniverseGen
 import edu.gatech.cs2340.spacetrader.model.interfaces.UniverseProvider
 import edu.gatech.cs2340.spacetrader.util.Size
 
-class GameManager(private val player: Player, val difficulty: GameDifficulty): UniverseProvider {
+class GameManager(val player: Player, val difficulty: GameDifficulty): UniverseProvider {
 
     private val universe: Universe = Universe(UniverseGen())
     var currentPlanet: Planet = universe.getRandomPlanet()
         private set
-
 
 
     override fun provide(): Universe {

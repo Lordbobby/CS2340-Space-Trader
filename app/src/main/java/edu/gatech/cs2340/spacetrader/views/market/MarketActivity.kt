@@ -2,11 +2,9 @@ package edu.gatech.cs2340.spacetrader.views.market
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import edu.gatech.cs2340.spacetrader.R
-import edu.gatech.cs2340.spacetrader.entity.inventory.Inventory
 import edu.gatech.cs2340.spacetrader.model.GameManager
-import edu.gatech.cs2340.spacetrader.viewmodel.MarketViewModel
+import edu.gatech.cs2340.spacetrader.viewmodel.market.MarketViewModel
 import kotlinx.android.synthetic.main.activity_market.*
 
 class MarketActivity: AppCompatActivity() {
@@ -15,16 +13,11 @@ class MarketActivity: AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_market)
-        val mode =  intent.getSerializableExtra("mode")
+        val mode =  intent.getSerializableExtra("mode") as MarketMode
         market_label.text = mode.toString()
-        val inventory: Inventory
-        if(mode == MarketMode.BUY) {
+        player_balance.text = "Balance: ${GameManager.INSTANCE!!.player.credits}"
 
-        } else {
-
-        }
-
-        viewModel.populateMarketList(good_list)
+        viewModel.populateMarketList(good_list, mode)
     } //onCreate
 
 } //MarketActivity

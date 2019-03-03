@@ -1,4 +1,4 @@
-package edu.gatech.cs2340.spacetrader.viewmodel
+package edu.gatech.cs2340.spacetrader.viewmodel.market
 
 import android.support.v7.app.AppCompatActivity
 

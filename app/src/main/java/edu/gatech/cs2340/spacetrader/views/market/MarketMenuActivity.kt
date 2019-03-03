@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import edu.gatech.cs2340.spacetrader.R
-import edu.gatech.cs2340.spacetrader.viewmodel.MarketMenuViewModel
+import edu.gatech.cs2340.spacetrader.viewmodel.market.MarketMenuViewModel
 import kotlinx.android.synthetic.main.activity_market_menu.*
 
 class MarketMenuActivity: AppCompatActivity() {
@@ -26,7 +26,7 @@ class MarketMenuActivity: AppCompatActivity() {
         } //sell button listener
 
         leave_button.setOnClickListener{
-
+            this.finish()
         } //leave button listener
     } //onCreate
 } //MarketMenu
