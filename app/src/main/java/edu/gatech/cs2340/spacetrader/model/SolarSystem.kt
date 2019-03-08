@@ -3,8 +3,9 @@ package edu.gatech.cs2340.spacetrader.model
 import edu.gatech.cs2340.spacetrader.generators.ColorGenerator
 import edu.gatech.cs2340.spacetrader.generators.MappedGenerator
 import edu.gatech.cs2340.spacetrader.util.Coordinate
+import java.io.Serializable
 
-class SolarSystem(generator: MappedGenerator<Planet>) {
+class SolarSystem(generator: MappedGenerator<Planet>): Serializable {
     private val planets = generator.generate()
     val color = ColorGenerator().generate()
 

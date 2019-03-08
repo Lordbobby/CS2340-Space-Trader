@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.GridLayout
 import edu.gatech.cs2340.spacetrader.R
+import edu.gatech.cs2340.spacetrader.model.GameManager
+import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.viewmodel.UniverseMapViewModel
 
 
@@ -13,9 +15,7 @@ class UniverseMapActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_universe_map)
-
         val gridLayout: GridLayout = findViewById(R.id.universe_gridlayout)
-
         viewModel.populateGridLayout(gridLayout)
     } //onCreate
 

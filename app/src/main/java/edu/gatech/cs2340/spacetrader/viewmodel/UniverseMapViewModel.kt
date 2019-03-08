@@ -1,7 +1,7 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
 import android.content.Intent
-import android.media.Image
+import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Gravity
@@ -14,6 +14,7 @@ import edu.gatech.cs2340.spacetrader.generators.MapGenerator
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.views.PlanetMenuActivity
+import edu.gatech.cs2340.spacetrader.views.TravelActivity
 import kotlinx.android.synthetic.main.activity_universe_map.*
 
 class UniverseMapViewModel(private val view: AppCompatActivity) {
@@ -72,10 +73,18 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
     } //getIndex
 
     private fun planetPushed(planet: Planet) {
-        if(GameManager.INSTANCE!!.currentPlanet == planet) {
+        if(GameManager.INSTANCE!!.currentPlanet.equals(planet)) {
             Log.d("UniverseMapViewModel", "planet menu")
             view.startActivity(Intent(view, PlanetMenuActivity::class.java))
-        } //if planet pressed is current planet
+        } else if (true) {
+            var intent = Intent(view, TravelActivity::class.java)
+            var bundle = Bundle()
+            bundle.putSerializable("Planet", planet)
+            intent.putExtras(bundle)
+            view.startActivity(intent)
+            view.finish()
+        }
+        //TODO update to only within range ring
     } //planetPushed
 
     private class PlanetHolder(private val view: AppCompatActivity): LinearLayout(view) {
@@ -105,6 +114,7 @@ class UniverseMapViewModel(private val view: AppCompatActivity) {
             image.setOnClickListener{
                 UniverseMapVM.planetPushed(planet)
             } //image onClickListener
+
         }
 
         private fun calcTextPosition(row: Int, col: Int): IntArray {
