@@ -4,6 +4,7 @@ import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
@@ -11,7 +12,7 @@ import edu.gatech.cs2340.spacetrader.viewmodel.TravelViewModel
 import kotlinx.android.synthetic.main.activity_travel.*
 
 class TravelActivity : AppCompatActivity() {
-    val viewModel = TravelViewModel(this)
+    val viewModel = TravelViewModel()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +26,18 @@ class TravelActivity : AppCompatActivity() {
             finish()
         }
         travel_go.setOnClickListener {
-            viewModel.attemptTravel(intent.extras!!["Planet"] as Planet)
+            var result = viewModel.attemptTravel(intent.extras!!["Planet"] as Planet)
+            if (result) {
+                GameManager.INSTANCE!!.currentPlanet = intent.extras!!["Planet"] as Planet
+                startActivity(Intent(this, UniverseMapActivity::class.java))
+                finish()
+            } else {
+                val toast = Toast.makeText(getApplicationContext(),
+                      "Not enough fuel",
+                      Toast.LENGTH_SHORT)
+                toast.show()
+            }
+
         }
     }
 }

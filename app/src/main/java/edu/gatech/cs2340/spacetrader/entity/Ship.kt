@@ -12,7 +12,7 @@ class Ship(type: ShipType) {
             field = value
         }
 
-    var fuel: Int = 0
+    var fuel: Int = 999999999
     fun getFuelLevel ():Int {
         return fuel
     }
@@ -27,6 +27,7 @@ class Ship(type: ShipType) {
                         Math.pow((planet2.coordinate.y- planet1.coordinate.y).toDouble(), 2.0))) {
             return true
         }
+       // Log.out
         return false
     }
 
