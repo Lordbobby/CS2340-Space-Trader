@@ -30,8 +30,9 @@ class TravelActivity : AppCompatActivity() {
             if (result) {
                 GameManager.INSTANCE!!.currentPlanet = intent.extras!!["Planet"] as Planet
                 startActivity(Intent(this, UniverseMapActivity::class.java))
+                val fuel = String.format("%.2f", GameManager.INSTANCE!!.player.ship.getFuelLevel())
                 val toast1 = Toast.makeText(getApplicationContext(),
-                        "You have ${GameManager.INSTANCE!!.player.ship.getFuelLevel()} fuel left ",
+                        "You have $fuel fuel left",
                         Toast.LENGTH_SHORT)
                 toast1.show()
                 finish()
