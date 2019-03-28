@@ -14,7 +14,9 @@ enum class Good(val MTLP: TechLevel, val MTLU: TechLevel, val TTP: Int, val base
     Medicine(TechLevel.EARLY_INDUSTRIAL, TechLevel.AGRICULTURE, 6, 650, -20, 10, "PLAGUE", "LOTSOFHERBS", "Never", 400, 700),
     Machines(TechLevel.EARLY_INDUSTRIAL, TechLevel.RENAISSANCE, 5, 900, -30, 5, "LACKOFWORKERS", "Never", "Never", 600, 800),
     Narcotics(TechLevel.INDUSTRIAL, TechLevel.PRE_AGRICULTURE, 5, 3500, -125, 150, "BOREDOM", "WEIRDMUSHROOMS", "Never", 2000, 3000),
-    Robots (TechLevel.POST_INDUSTRIAL, TechLevel.EARLY_INDUSTRIAL, 7, 5000, -150, 100, "LACKOFWORKERS", "Never", "Never", 3500, 3500);
+    Robots (TechLevel.POST_INDUSTRIAL, TechLevel.EARLY_INDUSTRIAL, 7, 5000, -150, 100, "LACKOFWORKERS", "Never", "Never", 3500, 3500),
+    //Fuel(TechLevel.POST_INDUSTRIAL,TechLevel.EARLY_INDUSTRIAL, 7, 20, -150, 100, "LACKOFWORKERS", "Never", "Never", 3500, 3500)
+    ;
 
     fun price(p: Planet): Int {
         return basePrice +
