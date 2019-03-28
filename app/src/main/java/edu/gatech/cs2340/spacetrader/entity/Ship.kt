@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.entity
 
+import android.util.Log
 import edu.gatech.cs2340.spacetrader.entity.inventory.Inventory
 import edu.gatech.cs2340.spacetrader.entity.inventory.PlayerInventory
 import edu.gatech.cs2340.spacetrader.model.Planet
@@ -12,22 +13,24 @@ class Ship(type: ShipType) {
             field = value
         }
 
-    var fuel: Int = 999999999
-    fun getFuelLevel ():Int {
+    var fuel: Double = 30.0
+    fun getFuelLevel ():Double {
         return fuel
     }
-    fun addFuel(fuelToAdd: Int) {
+    fun addFuel(fuelToAdd: Double) {
         fuel += fuelToAdd
     }
-    fun removeFuel(fuelToBeremoved: Int) {
+    fun removeFuel(fuelToBeremoved: Double) {
         fuel -= fuelToBeremoved
     }
     fun canTravel(planet1: Planet, planet2: Planet): Boolean {
-        if (fuel > Math.sqrt(Math.pow((planet2.coordinate.x - planet1.coordinate.x).toDouble(), 2.0) +
-                        Math.pow((planet2.coordinate.y- planet1.coordinate.y).toDouble(), 2.0))) {
+        var distance = Math.sqrt(Math.pow((planet2.coordinate.x - planet1.coordinate.x).toDouble(), 2.0) +
+                Math.pow((planet2.coordinate.y- planet1.coordinate.y).toDouble(), 2.0))
+        if (fuel > distance ) {
+            removeFuel(distance)
             return true
         }
-       // Log.out
+        Log.d("mytag","Can travel is returning false")
         return false
     }
 

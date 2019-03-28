@@ -36,6 +36,7 @@ class TravelActivity : AppCompatActivity() {
                       "Not enough fuel",
                       Toast.LENGTH_SHORT)
                 toast.show()
+
             }
 
         }
