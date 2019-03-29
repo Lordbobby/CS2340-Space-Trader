@@ -1,8 +1,9 @@
 package edu.gatech.cs2340.spacetrader.entity.inventory
 
 import edu.gatech.cs2340.spacetrader.entity.Good
+import java.io.Serializable
 
-abstract class Inventory {
+abstract class Inventory: Serializable {
     abstract val inv: MutableMap<Good, Int>
     abstract var cap: Int
     abstract var size: Int

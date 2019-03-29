@@ -2,8 +2,9 @@ package edu.gatech.cs2340.spacetrader.model
 
 import edu.gatech.cs2340.spacetrader.generators.SetGenerator
 import edu.gatech.cs2340.spacetrader.util.Coordinate
+import java.io.Serializable
 
-class Universe(generator: SetGenerator<SolarSystem>) {
+class Universe(generator: SetGenerator<SolarSystem>): Serializable {
     private val systems: Set<SolarSystem> = generator.generate()
 
 

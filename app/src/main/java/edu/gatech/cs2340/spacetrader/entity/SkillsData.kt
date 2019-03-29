@@ -1,6 +1,8 @@
 package edu.gatech.cs2340.spacetrader.entity
 
-data class SkillsData(val skillsMap: MutableMap<Skill, Int>) {
+import java.io.Serializable
+
+data class SkillsData(val skillsMap: MutableMap<Skill, Int>):Serializable {
 
     init{
         for(s: Skill in Skill.values()) {

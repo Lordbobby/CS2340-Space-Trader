@@ -41,12 +41,12 @@
             android:text="Services" />
 
         <Button
-            android:id = "@+id/recover_button"
+            android:id = "@+id/save_button"
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_row="1"
             android:layout_column="0"
-            android:text="Recover"   />
+            android:text="Save"   />
         <Button
             android:id = "@+id/planet_info_button"
             android:layout_columnWeight="1"

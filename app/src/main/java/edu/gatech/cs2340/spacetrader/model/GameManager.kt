@@ -6,8 +6,9 @@ import edu.gatech.cs2340.spacetrader.model.interfaces.UniverseProvider
 import edu.gatech.cs2340.spacetrader.util.Size
 import edu.gatech.cs2340.spacetrader.viewmodel.UniverseMapViewModel
 import edu.gatech.cs2340.spacetrader.views.UniverseMapActivity
+import java.io.Serializable
 
-class GameManager(val player: Player, val difficulty: GameDifficulty): UniverseProvider {
+class GameManager(val player: Player, val difficulty: GameDifficulty): UniverseProvider, Serializable {
 
     private val universe: Universe = Universe(UniverseGen())
     var currentPlanet: Planet = universe.getRandomPlanet()
@@ -19,6 +20,5 @@ class GameManager(val player: Player, val difficulty: GameDifficulty): UniverseP
     companion object {
         var INSTANCE: GameManager? = null
         var SIZE: Size? = null
-        var UMVM: UniverseMapViewModel? = null
     }
 }
