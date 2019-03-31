@@ -1,29 +1,60 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
+import android.app.ActionBar
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.Paint
+import android.graphics.Rect
+import android.graphics.drawable.ShapeDrawable
+import android.graphics.drawable.shapes.OvalShape
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Gravity
-import android.widget.GridLayout
-import android.widget.ImageView
-import android.widget.LinearLayout
-import android.widget.TextView
+import android.view.View
+import android.view.ViewGroup
+import android.widget.*
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.generators.MapGenerator
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.views.PlanetMenuActivity
 import edu.gatech.cs2340.spacetrader.views.TravelActivity
+import edu.gatech.cs2340.spacetrader.views.UniverseMapActivity
 import kotlinx.android.synthetic.main.activity_universe_map.*
 
-class UniverseMapViewModel(private val view: AppCompatActivity) {
+class UniverseMapViewModel(private val view: UniverseMapActivity) {
 
-    fun populateGridLayout(gridLayout: GridLayout) {
+    fun populateGridLayout(gridLayout: GridLayout, fuel: Double) {
         gridLayout.removeAllViews()
         gridLayout.columnCount = COLUMNS
         gridLayout.rowCount = ROWS
         gridLayout.clipChildren = false
+
+        val layout = GameManager.SIZE!!
+        val width = layout.width / ROWS
+        val height = layout.height / COLUMNS
+        val x: Float = 7.5f * width
+        val y: Float = 7.5f * height
+
+        val viewContainer = View(view)
+        val layoutParams = RelativeLayout.LayoutParams((fuel * 50).toInt(), (fuel * 50).toInt())
+
+        layoutParams.addRule(RelativeLayout.CENTER_IN_PARENT,  RelativeLayout.TRUE)
+
+        viewContainer.layoutParams = layoutParams
+
+        val drawable = ShapeDrawable(OvalShape())
+
+        drawable.paint.color = Color.BLACK
+        drawable.paint.strokeWidth = 5f
+        drawable.paint.style = Paint.Style.STROKE
+
+        viewContainer.background = drawable
+        viewContainer.x = x - layoutParams.width / 2
+        viewContainer.y = y - layoutParams.height / 2
+        view.container.addView(viewContainer)
 
         val center = GameManager.INSTANCE!!.currentPlanet
         val gen = MapGenerator(GameManager.INSTANCE!!, center.coordinate, ROWS, COLUMNS)

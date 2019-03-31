@@ -13,7 +13,7 @@ class Ship(type: ShipType) {
             field = value
         }
 
-    var fuel: Double = 30.0
+    var fuel: Double = 20.0
     fun getFuelLevel ():Double {
         return fuel
     }
@@ -26,6 +26,7 @@ class Ship(type: ShipType) {
     fun canTravel(planet1: Planet, planet2: Planet): Boolean {
         var distance = Math.sqrt(Math.pow((planet2.coordinate.x - planet1.coordinate.x).toDouble(), 2.0) +
                 Math.pow((planet2.coordinate.y- planet1.coordinate.y).toDouble(), 2.0))
+        distance *= 3
         if (fuel > distance ) {
             removeFuel(distance)
             return true

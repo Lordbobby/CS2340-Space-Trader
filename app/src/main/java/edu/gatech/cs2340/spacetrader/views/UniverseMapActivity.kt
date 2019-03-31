@@ -16,7 +16,9 @@ class UniverseMapActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_universe_map)
         val gridLayout: GridLayout = findViewById(R.id.universe_gridlayout)
-        viewModel.populateGridLayout(gridLayout)
+        val fuel = GameManager.INSTANCE!!.player.ship.getFuelLevel()
+
+        viewModel.populateGridLayout(gridLayout, fuel)
     } //onCreate
 
 } //UniverseMapActivity
