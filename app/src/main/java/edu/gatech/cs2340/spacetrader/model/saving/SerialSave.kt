@@ -31,8 +31,8 @@ class SerialSave: Savable {
     } //save
 
     override fun load(context: Context):Boolean {
-        var manager:GameManager?
-        var size:Size?
+        val manager:GameManager?
+        val size:Size?
 
         try {
             var fileInput = context.openFileInput(saveFileName)
@@ -44,9 +44,9 @@ class SerialSave: Savable {
 
             objectInput.close()
             fileInput.close()
-            
+
             GameManager.INSTANCE = manager
-            GameManager.SIZE = size;
+            GameManager.SIZE = size
             Log.d("load", "load successful")
             return true
         } catch(e: FileNotFoundException) {
