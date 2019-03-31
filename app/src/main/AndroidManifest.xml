@@ -25,7 +25,6 @@
         <activity android:name=".views.PlanetMenuActivity" />
         <activity android:name=".views.market.MarketMenuActivity" />
         <activity android:name=".views.market.MarketActivity" />
-        <activity android:name=".views.market.QuantitySelectPopUpActivity" />
     </application>
 
 </manifest>
