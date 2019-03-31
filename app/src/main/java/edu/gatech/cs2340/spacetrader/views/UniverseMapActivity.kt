@@ -5,9 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.GridLayout
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.model.GameManager
-import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.viewmodel.UniverseMapViewModel
-
 
 class UniverseMapActivity : AppCompatActivity() {
     private val viewModel = UniverseMapViewModel(this)

@@ -1,19 +1,15 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
-import android.app.ActionBar
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Paint
-import android.graphics.Rect
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.shapes.OvalShape
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.widget.*
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.generators.MapGenerator

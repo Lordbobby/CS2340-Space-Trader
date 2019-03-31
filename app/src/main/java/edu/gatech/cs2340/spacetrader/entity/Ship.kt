@@ -1,7 +1,6 @@
 package edu.gatech.cs2340.spacetrader.entity
 
 import android.util.Log
-import edu.gatech.cs2340.spacetrader.entity.inventory.Inventory
 import edu.gatech.cs2340.spacetrader.entity.inventory.PlayerInventory
 import edu.gatech.cs2340.spacetrader.model.Planet
 import java.io.Serializable

@@ -1,9 +1,8 @@
 package edu.gatech.cs2340.spacetrader.views
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.model.GameManager

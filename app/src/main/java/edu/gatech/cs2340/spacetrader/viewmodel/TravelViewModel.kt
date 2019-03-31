@@ -1,12 +1,7 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
-import android.content.Intent
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
-import edu.gatech.cs2340.spacetrader.views.TravelActivity
-import edu.gatech.cs2340.spacetrader.views.UniverseMapActivity
-import android.widget.Toast
-
 
 
 class TravelViewModel {

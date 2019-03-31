@@ -4,7 +4,10 @@ import android.content.Context
 import android.util.Log
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.util.Size
-import java.io.*
+import java.io.FileNotFoundException
+import java.io.IOException
+import java.io.ObjectInputStream
+import java.io.ObjectOutputStream
 
 class SerialSave: Savable {
     private val saveFileName = "saveFile"
