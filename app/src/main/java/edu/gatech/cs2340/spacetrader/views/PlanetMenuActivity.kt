@@ -27,5 +27,9 @@ class PlanetMenuActivity: AppCompatActivity() {
         save_button.setOnClickListener {
             viewModel.save()
         } //saveButton click listener
+
+        status_button.setOnClickListener {
+            viewModel.showStatus()
+        } //status_button click listener
     } //onCreate
 } //PlanetMenuActivity
