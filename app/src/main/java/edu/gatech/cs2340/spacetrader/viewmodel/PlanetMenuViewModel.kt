@@ -9,7 +9,7 @@ import edu.gatech.cs2340.spacetrader.model.saving.SerialSave
 class PlanetMenuViewModel(private val view: AppCompatActivity) {
     fun save() {
         val saver: Savable = SerialSave()
-        val result = if(saver.save(GameManager.INSTANCE!!, view.applicationContext)) {
+        val result = if(saver.save(GameManager.INSTANCE!!, GameManager.SIZE,view.applicationContext)) {
             "Save Successful"
         } else {
             "Save failed, try again later"
