@@ -9,9 +9,12 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.R
+import edu.gatech.cs2340.spacetrader.entity.IncreaseEvent
 import edu.gatech.cs2340.spacetrader.model.GameManager
+import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.model.saving.Savable
 import edu.gatech.cs2340.spacetrader.model.saving.SerialSave
+import kotlinx.android.synthetic.main.activity_travel.*
 
 class PlanetMenuViewModel(private val view: AppCompatActivity) {
     fun save() {
@@ -23,6 +26,12 @@ class PlanetMenuViewModel(private val view: AppCompatActivity) {
         }
         Toast.makeText(view, result, Toast.LENGTH_SHORT).show()
     } //saveButton listener
+
+    fun addExtras(targetPlanet: Planet) {
+        if ( targetPlanet.event != IncreaseEvent.NONE ) {
+            view.event_msg.text = "WARNING! This planet is currently experiencing " + targetPlanet.event + "!"
+        }
+    }
 
     fun showStatus() {
         val inflater = view.layoutInflater

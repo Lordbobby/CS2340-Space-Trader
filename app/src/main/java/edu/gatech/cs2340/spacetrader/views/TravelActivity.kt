@@ -18,6 +18,8 @@ class TravelActivity : AppCompatActivity() {
                 getString(R.string.travel_msg, (intent.extras!!["Planet"] as Planet).name)
         )
 
+        viewModel.addExtras( intent.extras!!["Planet"] as Planet )
+
         travel_cancel.setOnClickListener {
             startActivity(Intent(this, UniverseMapActivity::class.java))
             finish()

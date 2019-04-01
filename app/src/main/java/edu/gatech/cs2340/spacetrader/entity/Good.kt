@@ -18,8 +18,14 @@ enum class Good(val MTLP: TechLevel, val MTLU: TechLevel, val TTP: Int, val base
     ;
 
     fun price(p: Planet): Int {
-        return basePrice +
+        var price = basePrice +
                 (IPL * (p.techLevel.ordinal - MTLP.ordinal) +
                 (basePrice * ((0..Var).random()/100)))
+
+        if ( p.event != IncreaseEvent.NONE && IE == p.event ) {
+            price *= 1000
+        }
+
+        return price
     }
 }

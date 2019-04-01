@@ -20,6 +20,8 @@ class PlanetMenuActivity: AppCompatActivity() {
                 "Welcome to ${GameManager.INSTANCE!!.currentPlanet.name }! What would you like to do?"
         )
 
+        viewModel.addExtras( GameManager.INSTANCE!!.currentPlanet )
+
         market_button.setOnClickListener{
                 startActivity(Intent(this, MarketMenuActivity::class.java))
         } //marketbutton listener

@@ -11,7 +11,7 @@ class Universe(generator: SetGenerator<SolarSystem>): Serializable {
 
     init {
         val increaseEventHandler = Handler()
-        val runnable = IncreaseEventRunnable(increaseEventHandler, this, 20)
+        val runnable = IncreaseEventRunnable(increaseEventHandler, this, 100)
 
         runnable.start()
     }
