@@ -1,13 +1,20 @@
 package edu.gatech.cs2340.spacetrader.model
 
+import android.os.Handler
 import edu.gatech.cs2340.spacetrader.generators.SetGenerator
+import edu.gatech.cs2340.spacetrader.runnable.IncreaseEventRunnable
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 import java.io.Serializable
 
 class Universe(generator: SetGenerator<SolarSystem>): Serializable {
     private val systems: Set<SolarSystem> = generator.generate()
 
+    init {
+        val increaseEventHandler = Handler()
+        val runnable = IncreaseEventRunnable(increaseEventHandler, this, 20)
 
+        runnable.start()
+    }
 
     fun calculateClosePlanets(coord: Coordinate, range: Int = 7): Map<Coordinate, Planet> {
         val closeSystems = hashMapOf<Coordinate, Planet>()
