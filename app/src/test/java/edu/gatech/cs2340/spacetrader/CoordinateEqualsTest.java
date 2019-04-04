@@ -8,9 +8,7 @@ import edu.gatech.cs2340.spacetrader.util.Coordinate;
 import static org.junit.Assert.assertEquals;
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * Test for Coordinate equals method
  */
 public class CoordinateEqualsTest {
     @Test
