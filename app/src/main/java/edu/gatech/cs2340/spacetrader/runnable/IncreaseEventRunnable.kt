@@ -1,16 +1,11 @@
 package edu.gatech.cs2340.spacetrader.runnable
 
-import android.os.Handler
 import android.util.Log
 import edu.gatech.cs2340.spacetrader.entity.IncreaseEvent
 import edu.gatech.cs2340.spacetrader.model.Universe
 import java.util.*
 
-class IncreaseEventRunnable(private val handler: Handler, private val universe: Universe, private val maxPlanets: Int) : Runnable {
-
-    fun start() {
-        handler.post(this)
-    }
+class IncreaseEventRunnable(private val universe: Universe, private val maxPlanets: Int) : Runnable {
 
     override fun run() {
         val half = maxPlanets / 2
@@ -24,7 +19,5 @@ class IncreaseEventRunnable(private val handler: Handler, private val universe: 
                 planet.event = IncreaseEvent.NONE
             }
         }
-
-        handler.postDelayed(this, 1000 * 30) //run every 30 seconds
     }
 }

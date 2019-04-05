@@ -5,6 +5,7 @@ import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.entity.IncreaseEvent
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
+import edu.gatech.cs2340.spacetrader.runnable.IncreaseEventRunnable
 import edu.gatech.cs2340.spacetrader.views.TravelActivity
 import edu.gatech.cs2340.spacetrader.views.UniverseMapActivity
 import kotlinx.android.synthetic.main.activity_travel.*
@@ -21,6 +22,7 @@ class TravelViewModel(private val view: TravelActivity) {
         val canTravel = (GameManager.INSTANCE!!.player.ship.canTravel(planet1,GameManager.INSTANCE!!.currentPlanet))
 
         if (canTravel) {
+            IncreaseEventRunnable(GameManager.INSTANCE!!.provide(), 50).run()
             GameManager.INSTANCE!!.currentPlanet = view.intent.extras!!["Planet"] as Planet
             view.startActivity(Intent(view, UniverseMapActivity::class.java))
             val fuel = String.format("%.2f", GameManager.INSTANCE!!.player.ship.getFuelLevel())
