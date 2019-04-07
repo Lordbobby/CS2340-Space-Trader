@@ -23,7 +23,7 @@ data class Coordinate(val x: Int, val y: Int): Serializable {
     }
 
     override fun hashCode(): Int {
-        var result: Int = 17
+        var result = 17
         result = result * 31 + x
         result = result * 31 + y
         return result

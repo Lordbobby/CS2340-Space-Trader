@@ -14,7 +14,7 @@ class PlanetInventory(planet: Planet): Inventory(), Serializable {
     init {
         for(g: Good in Good.values()) {
             if (g.MTLP <= planet.techLevel) {
-                inv.put(g, (0..Constants.MAX_GOODS_PER_PLANET).random())
+                inv[g] = (0..Constants.MAX_GOODS_PER_PLANET).random()
             }
         }
     }

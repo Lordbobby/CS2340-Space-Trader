@@ -100,12 +100,12 @@ class UniverseMapViewModel(private val view: UniverseMapActivity) {
     } //getIndex
 
     private fun planetPushed(planet: Planet) {
-        if(GameManager.INSTANCE!!.currentPlanet.equals(planet)) {
+        if(GameManager.INSTANCE!!.currentPlanet == planet) {
             Log.d("UniverseMapViewModel", "planet menu")
             view.startActivity(Intent(view, PlanetMenuActivity::class.java))
-        } else if (true) {
-            var intent = Intent(view, TravelActivity::class.java)
-            var bundle = Bundle()
+        } else {
+            val intent = Intent(view, TravelActivity::class.java)
+            val bundle = Bundle()
             bundle.putSerializable("Planet", planet)
             intent.putExtras(bundle)
             view.startActivity(intent)

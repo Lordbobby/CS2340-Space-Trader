@@ -5,13 +5,15 @@ import org.junit.Test;
 
 import edu.gatech.cs2340.spacetrader.util.Coordinate;
 
-import static org.junit.Assert.assertEquals;
-
 /**
  * Test for Coordinate equals method
  */
 public class CoordinateEqualsTest {
+
     @Test
+    /**
+     * Test for equals method
+     */
     public void equals() {
         Coordinate c1 = new Coordinate(0, 0);
         Object fakeCoord = new Object();

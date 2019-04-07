@@ -14,9 +14,7 @@ class TravelActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_travel)
-        travel_msg.setText(
-                getString(R.string.travel_msg, (intent.extras!!["Planet"] as Planet).name)
-        )
+        travel_msg.text = getString(R.string.travel_msg, (intent.extras!!["Planet"] as Planet).name)
 
         viewModel.addExtras( intent.extras!!["Planet"] as Planet )
 

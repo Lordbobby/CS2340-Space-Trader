@@ -7,7 +7,7 @@ import edu.gatech.cs2340.spacetrader.entity.inventory.PlanetInventory
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 import java.io.Serializable
 
-class Planet(val name: String, val coordinate: Coordinate, val resource: PlanetResource, val techLevel: TechLevel): Serializable {
+class Planet(val name: String, val coordinate: Coordinate, private val resource: PlanetResource, val techLevel: TechLevel): Serializable {
 
     var event: IncreaseEvent = IncreaseEvent.NONE
     var solarSystem: SolarSystem? = null
@@ -21,8 +21,8 @@ class Planet(val name: String, val coordinate: Coordinate, val resource: PlanetR
         if (other == null) {
             return false
         }
-        if (!(other is Planet)) {
-            return false;
+        if (other !is Planet) {
+            return false
         }
         val other: Planet = other
         return name == other.name

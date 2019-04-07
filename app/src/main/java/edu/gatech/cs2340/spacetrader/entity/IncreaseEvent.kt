@@ -1,6 +1,6 @@
 package edu.gatech.cs2340.spacetrader.entity
 
-enum class IncreaseEvent(val nameString: String) {
+enum class IncreaseEvent(private val nameString: String) {
     NONE(""),
     DROUGHT("a drought"),
     COLD("extreme cold"),
