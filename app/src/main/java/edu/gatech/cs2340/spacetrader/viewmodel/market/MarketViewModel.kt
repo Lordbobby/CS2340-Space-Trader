@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.viewmodel.market
 
+import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.CardView
 import android.util.Log
@@ -11,7 +12,7 @@ import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.transaction.TransactionMode
 import edu.gatech.cs2340.spacetrader.views.market.GoodQuantityPickerDialog
 
-class MarketViewModel(val activity: AppCompatActivity) {
+class MarketViewModel(private val activity: AppCompatActivity) {
     fun populateMarketList(linearLayout: LinearLayout, mode: TransactionMode) {
         val inventory: Inventory
 
@@ -24,12 +25,13 @@ class MarketViewModel(val activity: AppCompatActivity) {
         } //if buying or selling
 
         inventory.inv.forEach {
-            Log.d("market", "${mode} triggered")
+            Log.d("market", "$mode triggered")
             val goodCard = makeGoodCard(it.key, it.value, mode)
             linearLayout.addView(goodCard)
         } //for each item in inventory
     } //populateMarketList
 
+    @SuppressLint("SetTextI18n")
     private fun makeGoodCard(good: Good, quantity: Int, mode: TransactionMode): CardView {
         val goodCard = CardView(activity)
         val cardLinear = LinearLayout(activity)
@@ -40,7 +42,7 @@ class MarketViewModel(val activity: AppCompatActivity) {
 
         goodName.text = good.toString()
         goodName.textSize = 25.toFloat()
-        goodQuantity.text = "x${quantity}       "
+        goodQuantity.text = "x$quantity       "
         goodPrice.text = good.price(GameManager.INSTANCE!!.currentPlanet).toString()
 
         cardLinear.orientation = LinearLayout.HORIZONTAL

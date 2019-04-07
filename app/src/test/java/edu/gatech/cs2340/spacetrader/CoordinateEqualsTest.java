@@ -5,8 +5,6 @@ import org.junit.Test;
 
 import edu.gatech.cs2340.spacetrader.util.Coordinate;
 
-import static org.junit.Assert.assertEquals;
-
 /**
  * Test for Coordinate equals method
  */

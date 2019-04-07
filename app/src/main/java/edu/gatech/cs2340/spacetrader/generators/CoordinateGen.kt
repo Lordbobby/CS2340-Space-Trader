@@ -4,7 +4,7 @@ import edu.gatech.cs2340.spacetrader.model.Universe
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
 class CoordinateGen: Generator<Coordinate>{
-    var currBase = Coordinate(0 , 0)
+    private var currBase = Coordinate(0 , 0)
     private val occupiedCorrdinates: HashSet<Coordinate> = HashSet()
 
     fun generateBasePoint() {

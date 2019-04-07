@@ -10,7 +10,7 @@ import edu.gatech.cs2340.spacetrader.views.UniverseMapActivity
 class MainMenuViewModel(private val view: AppCompatActivity) {
     fun load() {
         val saver: Savable = SerialSave()
-        var result:String
+        val result:String
         result = if(saver.load(view)) {
             "Load successful"
         } else {

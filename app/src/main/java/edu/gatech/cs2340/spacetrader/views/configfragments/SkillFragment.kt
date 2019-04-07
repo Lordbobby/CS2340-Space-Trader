@@ -16,9 +16,6 @@ class SkillFragment : Fragment(), ConfigViewModelProvider {
     private val skillVm = SkillSelectionViewModel()
 
     companion object {
-        fun newInstance(): SkillFragment {
-            return SkillFragment()
-        }
     }
 
     override fun onCreateView(
@@ -37,33 +34,23 @@ class SkillFragment : Fragment(), ConfigViewModelProvider {
         val pointsEngineer = view.skill_engineer_value
 
         fun updateUnassignedPoints() {
-            pointsLeftTextView.setText(
-                    getString(R.string.skill_selection_pointsLeft, skillVm.getPointsLeft())
-            )
+            pointsLeftTextView.text = getString(R.string.skill_selection_pointsLeft, skillVm.getPointsLeft())
         }
 
         fun updatePilotPoints() {
-            pointsPilot.setText(
-                    getString(R.string.skill_points_current, skillVm.getSkillPoints(Skill.PILOT))
-            )
+            pointsPilot.text = getString(R.string.skill_points_current, skillVm.getSkillPoints(Skill.PILOT))
         }
 
         fun updateFighterPoints() {
-            pointsFighter.setText(
-                    getString(R.string.skill_points_current, skillVm.getSkillPoints(Skill.FIGHTER))
-            )
+            pointsFighter.text = getString(R.string.skill_points_current, skillVm.getSkillPoints(Skill.FIGHTER))
         }
 
         fun updateTraderPoints() {
-            pointsTrader.setText(
-                    getString(R.string.skill_points_current, skillVm.getSkillPoints(Skill.TRADER))
-            )
+            pointsTrader.text = getString(R.string.skill_points_current, skillVm.getSkillPoints(Skill.TRADER))
         }
 
         fun updateEngineerPoints() {
-            pointsEngineer.setText(
-                    getString(R.string.skill_points_current, skillVm.getSkillPoints(Skill.ENGINEER))
-            )
+            pointsEngineer.text = getString(R.string.skill_points_current, skillVm.getSkillPoints(Skill.ENGINEER))
         }
 
         updateUnassignedPoints()

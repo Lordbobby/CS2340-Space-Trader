@@ -2,8 +2,8 @@ package edu.gatech.cs2340.spacetrader.entity
 
 import edu.gatech.cs2340.spacetrader.model.Planet
 
-enum class Good(val MTLP: TechLevel, val MTLU: TechLevel, val TTP: Int, val basePrice: Int,
-                val IPL: Int, val Var: Int, val IE: IncreaseEvent, val CR: String,
+enum class Good(val MTLP: TechLevel, val MTLU: TechLevel, val TTP: Int, private val basePrice: Int,
+                private val IPL: Int, private val Var: Int, private val IE: IncreaseEvent, val CR: String,
                 val ER: String, val MTL: Int, val MTH: Int) {
     Water(TechLevel.PRE_AGRICULTURE, TechLevel.PRE_AGRICULTURE, 2, 30, 3, 4, IncreaseEvent.DROUGHT, "LOTSOFWATER", "DESERT", 30, 50),
     Furs(TechLevel.PRE_AGRICULTURE, TechLevel.PRE_AGRICULTURE, 0, 250, 10, 10, IncreaseEvent.COLD, "RICHFAUNA", "LIFELESS", 230, 280),

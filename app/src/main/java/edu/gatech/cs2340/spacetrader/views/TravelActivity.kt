@@ -9,14 +9,12 @@ import edu.gatech.cs2340.spacetrader.viewmodel.TravelViewModel
 import kotlinx.android.synthetic.main.activity_travel.*
 
 class TravelActivity : AppCompatActivity() {
-    val viewModel = TravelViewModel( this )
+    private val viewModel = TravelViewModel( this )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_travel)
-        travel_msg.setText(
-                getString(R.string.travel_msg, (intent.extras!!["Planet"] as Planet).name)
-        )
+        travel_msg.text = getString(R.string.travel_msg, (intent.extras!!["Planet"] as Planet).name)
 
         viewModel.addExtras( intent.extras!!["Planet"] as Planet )
 
