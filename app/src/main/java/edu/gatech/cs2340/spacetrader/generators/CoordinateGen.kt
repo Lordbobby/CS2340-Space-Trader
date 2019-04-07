@@ -18,7 +18,7 @@ class CoordinateGen: Generator<Coordinate>{
         val y = ((currBase.y - 5) until (currBase.y + 5)).random()
         val coordinate = linearProbe(x, y, 2)
 
-        occupiedCorrdinates.add(coordinate)
+        occupiedCoordinates.add(coordinate)
         return coordinate
     } //generate
 
@@ -28,7 +28,7 @@ class CoordinateGen: Generator<Coordinate>{
         var coordinate = Coordinate(x , y)
 
         //linear probes the coordinates until free space is found
-        while(occupiedCorrdinates.contains(coordinate)) {
+        while(occupiedCoordinates.contains(coordinate)) {
             newX += step
             newY += step
             coordinate = Coordinate(newX, newY)
