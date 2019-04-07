@@ -9,7 +9,7 @@ import edu.gatech.cs2340.spacetrader.viewmodel.TravelViewModel
 import kotlinx.android.synthetic.main.activity_travel.*
 
 class TravelActivity : AppCompatActivity() {
-    val viewModel = TravelViewModel( this )
+    private val viewModel = TravelViewModel( this )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
