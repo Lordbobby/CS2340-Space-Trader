@@ -15,8 +15,7 @@ import kotlinx.android.synthetic.main.fragment_skill_selection.view.*
 class SkillFragment : Fragment(), ConfigViewModelProvider {
     private val skillVm = SkillSelectionViewModel()
 
-    companion object {
-    }
+    companion object;
 
     override fun onCreateView(
             inflater: LayoutInflater,

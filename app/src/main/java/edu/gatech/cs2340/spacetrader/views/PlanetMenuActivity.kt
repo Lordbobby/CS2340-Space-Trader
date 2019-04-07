@@ -16,7 +16,8 @@ class PlanetMenuActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_planet_menu)
 
-        welcome.text = "Welcome to ${GameManager.INSTANCE!!.currentPlanet.name }! What would you like to do?"
+        welcome.text = "Welcome to ${GameManager.INSTANCE!!.currentPlanet.name }!" +
+                " What would you like to do?"
 
         viewModel.addExtras( GameManager.INSTANCE!!.currentPlanet )
 

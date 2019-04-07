@@ -21,8 +21,8 @@ class Ship(type: ShipType): Serializable {
         fuel -= fuelToBeremoved
     }
     fun canTravel(planet1: Planet, planet2: Planet): Boolean {
-        var distance = Math.sqrt(Math.pow((planet2.coordinate.x - planet1.coordinate.x).toDouble(), 2.0) +
-                Math.pow((planet2.coordinate.y- planet1.coordinate.y).toDouble(), 2.0))
+        var distance = Math.sqrt(Math.pow((planet2.coordinate.x - planet1.coordinate.x).toDouble(),
+                2.0) + Math.pow((planet2.coordinate.y- planet1.coordinate.y).toDouble(), 2.0))
         distance *= 3
         if (fuel > distance ) {
             removeFuel(distance)
@@ -35,7 +35,6 @@ class Ship(type: ShipType): Serializable {
     val inventory: PlayerInventory = PlayerInventory(type.cargoCap)
 
     fun updateShip(shipType: ShipType) {
-        //TODO Implement
         //When you do, make sure you transfer that ship's inventory
     }
 

@@ -28,7 +28,8 @@ class MainMenuActivity : AppCompatActivity() {
         }//newGame click listener
 
         button.setOnClickListener {
-            val gameMan = GameManager(Player("Test", SkillsData(mutableMapOf()), ShipType.GNAT), GameDifficulty.BEGINNER)
+            val gameMan = GameManager(Player("Test", SkillsData(mutableMapOf()),
+                    ShipType.GNAT), GameDifficulty.BEGINNER)
             val layout = coordinatorLayout
             val width = layout.width
             val height = layout.height

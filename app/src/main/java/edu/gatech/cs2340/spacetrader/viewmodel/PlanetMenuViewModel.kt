@@ -19,7 +19,8 @@ import kotlinx.android.synthetic.main.activity_travel.*
 class PlanetMenuViewModel(private val view: AppCompatActivity) {
     fun save() {
         val saver: Savable = SerialSave()
-        val result = if(saver.save(GameManager.INSTANCE!!, GameManager.SIZE,view.applicationContext)) {
+        val result = if(saver.save(GameManager.INSTANCE!!, GameManager.SIZE,
+                        view.applicationContext)) {
             "Save Successful"
         } else {
             "Save failed, try again later"
@@ -29,7 +30,8 @@ class PlanetMenuViewModel(private val view: AppCompatActivity) {
 
     fun addExtras(targetPlanet: Planet) {
         if ( targetPlanet.event != IncreaseEvent.NONE ) {
-            view.event_msg.text = "WARNING! This planet is currently experiencing " + targetPlanet.event + "!"
+            view.event_msg.text = "WARNING! This planet is currently experiencing " +
+                    targetPlanet.event + "!"
         }
     }
 
@@ -37,7 +39,8 @@ class PlanetMenuViewModel(private val view: AppCompatActivity) {
         val inflater = view.layoutInflater
         val statusView = inflater.inflate(R.layout.popup_status, null)
 
-        val popUpWindow = PopupWindow( statusView, ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+        val popUpWindow = PopupWindow( statusView, ViewGroup.LayoutParams.WRAP_CONTENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT)
 
         if ( Build.VERSION.SDK_INT >= 21 ){
             popUpWindow.elevation = 5.0f

@@ -14,7 +14,8 @@ import edu.gatech.cs2340.spacetrader.viewmodel.GameDifficultyViewModel
 import edu.gatech.cs2340.spacetrader.views.interfaces.ConfigViewModelProvider
 import kotlinx.android.synthetic.main.fragment_game_difficulty.*
 
-class GameDifficultyFragment : Fragment(), ConfigViewModelProvider, AdapterView.OnItemSelectedListener{
+class GameDifficultyFragment : Fragment(), ConfigViewModelProvider,
+        AdapterView.OnItemSelectedListener{
     private val difficultyVM = GameDifficultyViewModel()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -24,7 +25,8 @@ class GameDifficultyFragment : Fragment(), ConfigViewModelProvider, AdapterView.
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val adapter = ArrayAdapter<GameDifficulty>(activity, android.R.layout.simple_spinner_item, GameDifficulty.values())
+        val adapter = ArrayAdapter<GameDifficulty>(activity, android.R.layout.simple_spinner_item,
+                GameDifficulty.values())
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         gameDifficultySpinner!!.adapter = adapter
 

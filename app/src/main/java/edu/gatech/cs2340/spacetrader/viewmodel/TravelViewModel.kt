@@ -14,12 +14,14 @@ import kotlinx.android.synthetic.main.activity_travel.*
 class TravelViewModel(private val view: TravelActivity) {
     fun addExtras(targetPlanet: Planet) {
         if ( targetPlanet.event != IncreaseEvent.NONE ) {
-            view.event_msg.text = "WARNING! This planet is currently experiencing " + targetPlanet.event + "!"
+            view.event_msg.text = "WARNING! This planet is currently experiencing "+
+                    targetPlanet.event + "!"
         }
     }
 
     fun attemptTravel(planet1 : Planet) {
-        val canTravel = (GameManager.INSTANCE!!.player.ship.canTravel(planet1,GameManager.INSTANCE!!.currentPlanet))
+        val canTravel = (GameManager.INSTANCE!!.player.ship.canTravel(planet1,
+                GameManager.INSTANCE!!.currentPlanet))
 
         if (canTravel) {
             IncreaseEventRunnable(GameManager.INSTANCE!!.provide(), 50).run()

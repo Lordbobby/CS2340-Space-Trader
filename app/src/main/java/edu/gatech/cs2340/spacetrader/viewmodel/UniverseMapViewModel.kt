@@ -111,7 +111,6 @@ class UniverseMapViewModel(private val view: UniverseMapActivity) {
             view.startActivity(intent)
             view.finish()
         }
-        //TODO update to only within range ring
     } //planetPushed
 
     private class PlanetHolder(private val view: AppCompatActivity): LinearLayout(view) {
@@ -122,8 +121,12 @@ class UniverseMapViewModel(private val view: UniverseMapActivity) {
             this.orientation = LinearLayout.VERTICAL
             this.setPadding(10, 10, 10, 10)
 
-            textView.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT)
-            image.layoutParams = LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT)
+            textView.layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT,
+                    LinearLayout.LayoutParams.WRAP_CONTENT)
+            image.layoutParams = LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.MATCH_PARENT,
+                    LinearLayout.LayoutParams.MATCH_PARENT)
 
             this.addView(image)
         }

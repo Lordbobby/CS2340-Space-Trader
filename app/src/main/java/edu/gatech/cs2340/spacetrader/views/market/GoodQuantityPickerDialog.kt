@@ -9,7 +9,9 @@ import edu.gatech.cs2340.spacetrader.model.transaction.Transactional
 import edu.gatech.cs2340.spacetrader.viewmodel.market.GoodQuantityPickerViewModel
 import kotlinx.android.synthetic.main.dialog_good_quantity.*
 
-class GoodQuantityPickerDialog(private val activity: AppCompatActivity, val good: Good, private val quantity: Int, private val transactional: Transactional): Dialog(activity) {
+class GoodQuantityPickerDialog(private val activity: AppCompatActivity, val good: Good,
+                               private val quantity: Int,
+                               private val transactional: Transactional): Dialog(activity) {
     private val viewModel = GoodQuantityPickerViewModel(this, activity)
 
     override fun onCreate(savedInstanceState: Bundle?) {

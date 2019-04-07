@@ -4,7 +4,8 @@ import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.model.interfaces.UniverseProvider
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
-class MapGenerator(private val provider: UniverseProvider, private val centerCoord: Coordinate, private val rows: Int, private val cols: Int): MappedGenerator<Planet> {
+class MapGenerator(private val provider: UniverseProvider, private val centerCoord: Coordinate,
+                   private val rows: Int, private val cols: Int): MappedGenerator<Planet> {
 
     override fun generate(): Map<Coordinate, Planet> {
         val universe = provider.provide()

@@ -6,7 +6,8 @@ import edu.gatech.cs2340.spacetrader.model.interfaces.UniverseProvider
 import edu.gatech.cs2340.spacetrader.util.Size
 import java.io.Serializable
 
-class GameManager(val player: Player, val difficulty: GameDifficulty): UniverseProvider, Serializable {
+class GameManager(val player: Player, val difficulty: GameDifficulty): UniverseProvider,
+        Serializable {
 
     private val universe: Universe = Universe(UniverseGen())
     var currentPlanet: Planet = universe.getRandomPlanet()

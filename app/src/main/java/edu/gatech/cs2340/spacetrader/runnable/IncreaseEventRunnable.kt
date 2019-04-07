@@ -5,7 +5,8 @@ import edu.gatech.cs2340.spacetrader.entity.IncreaseEvent
 import edu.gatech.cs2340.spacetrader.model.Universe
 import java.util.*
 
-class IncreaseEventRunnable(private val universe: Universe, private val maxPlanets: Int) : Runnable {
+class IncreaseEventRunnable(private val universe: Universe,
+                            private val maxPlanets: Int) : Runnable {
 
     override fun run() {
         val half = maxPlanets / 2

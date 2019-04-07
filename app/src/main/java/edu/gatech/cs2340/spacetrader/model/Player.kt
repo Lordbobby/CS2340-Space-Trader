@@ -5,7 +5,8 @@ import edu.gatech.cs2340.spacetrader.entity.ShipType
 import edu.gatech.cs2340.spacetrader.entity.SkillsData
 import java.io.Serializable
 
-class Player(val name: String, var credits: Int, private var skills: SkillsData, var ship: Ship): Serializable {
+class Player(val name: String, var credits: Int, private var skills: SkillsData, var ship: Ship):
+        Serializable {
 
     constructor(name: String, skills: SkillsData, ship: ShipType) : this(name, 1000, skills, Ship())
 

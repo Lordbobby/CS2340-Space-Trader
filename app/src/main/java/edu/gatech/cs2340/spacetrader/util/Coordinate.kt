@@ -5,7 +5,8 @@ import java.io.Serializable
 data class Coordinate(val x: Int, val y: Int): Serializable {
 
     fun calculateDistance (coordinate: Coordinate): Double {
-        return Math.sqrt(Math.pow((x - coordinate.x).toDouble(), 2.0) + Math.pow((y - coordinate.y).toDouble(), 2.0))
+        return Math.sqrt(Math.pow((x - coordinate.x).toDouble(), 2.0)
+                + Math.pow((y - coordinate.y).toDouble(), 2.0))
     }
 
     override fun toString(): String {
