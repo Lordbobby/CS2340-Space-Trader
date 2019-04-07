@@ -5,7 +5,7 @@ import edu.gatech.cs2340.spacetrader.util.Coordinate
 
 class CoordinateGen: Generator<Coordinate>{
     var currBase = Coordinate(0 , 0)
-    private val occupiedCorrdinates: HashSet<Coordinate> = HashSet()
+    private val occupiedCoordinates: HashSet<Coordinate> = HashSet()
 
     fun generateBasePoint() {
         val x = (5 until (Universe.MAX_X - 5)).random()

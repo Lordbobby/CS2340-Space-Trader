@@ -56,4 +56,4 @@ class MarketViewModel(val activity: AppCompatActivity) {
         return goodCard
     } //makeGoodCard
 
-} //MarketViewModle
+} //MarketViewModel
