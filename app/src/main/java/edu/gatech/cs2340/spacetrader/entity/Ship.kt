@@ -8,7 +8,10 @@ import java.io.Serializable
 class Ship(type: ShipType): Serializable {
     constructor() : this(ShipType.GNAT)
 
-    private var type: ShipType = type
+    var type: ShipType = type
+        private set(value) {
+            field = value
+        }
 
     var fuel: Double = 20.0
     fun getFuelLevel ():Double {
@@ -17,8 +20,8 @@ class Ship(type: ShipType): Serializable {
     fun addFuel(fuelToAdd: Double) {
         fuel += fuelToAdd
     }
-    private fun removeFuel(fuelToBeremoved: Double) {
-        fuel -= fuelToBeremoved
+    fun removeFuel(fuelToBeRemoved: Double) {
+        fuel -= fuelToBeRemoved
     }
     fun canTravel(planet1: Planet, planet2: Planet): Boolean {
         var distance = Math.sqrt(Math.pow((planet2.coordinate.x - planet1.coordinate.x).toDouble(), 2.0) +
@@ -28,7 +31,7 @@ class Ship(type: ShipType): Serializable {
             removeFuel(distance)
             return true
         }
-        Log.d("mytag","Can travel is returning false")
+        Log.d("myTag","Can travel is returning false")
         return false
     }
 

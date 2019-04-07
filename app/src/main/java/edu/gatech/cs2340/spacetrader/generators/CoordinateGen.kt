@@ -4,8 +4,8 @@ import edu.gatech.cs2340.spacetrader.model.Universe
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
 class CoordinateGen: Generator<Coordinate>{
-    private var currBase = Coordinate(0 , 0)
-    private val occupiedCorrdinates: HashSet<Coordinate> = HashSet()
+    var currBase = Coordinate(0 , 0)
+    private val occupiedCoordinates: HashSet<Coordinate> = HashSet()
 
     fun generateBasePoint() {
         val x = (5 until (Universe.MAX_X - 5)).random()
@@ -18,7 +18,7 @@ class CoordinateGen: Generator<Coordinate>{
         val y = ((currBase.y - 5) until (currBase.y + 5)).random()
         val coordinate = linearProbe(x, y, 2)
 
-        occupiedCorrdinates.add(coordinate)
+        occupiedCoordinates.add(coordinate)
         return coordinate
     } //generate
 
@@ -28,7 +28,7 @@ class CoordinateGen: Generator<Coordinate>{
         var coordinate = Coordinate(x , y)
 
         //linear probes the coordinates until free space is found
-        while(occupiedCorrdinates.contains(coordinate)) {
+        while(occupiedCoordinates.contains(coordinate)) {
             newX += step
             newY += step
             coordinate = Coordinate(newX, newY)
