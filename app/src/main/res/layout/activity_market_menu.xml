@@ -8,7 +8,7 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to the market! Would you like to buy or sell something?"
+        android:text="@string/welcome"
         android:textSize="20sp"
         android:textColor="@android:color/black"/>
 
@@ -16,7 +16,7 @@
         android:id="@+id/buy_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Buy"
+        android:text="@string/buy"
         android:layout_centerHorizontal="true"
         android:layout_above="@id/sell_button"/>
 
@@ -24,14 +24,14 @@
         android:id="@+id/sell_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sell"
+        android:text="@string/sell"
         android:layout_centerInParent="true" />
 
     <Button
         android:id="@+id/leave_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Leave"
+        android:text="@string/leave"
         android:layout_centerHorizontal="true"
         android:layout_below="@id/sell_button"
         />

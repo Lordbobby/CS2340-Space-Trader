@@ -15,7 +15,8 @@ public class PlanetTest {
 
     @Test
     public void testEqualReturnsFalseWithNull() {
-        Planet planet = new Planet("test", new Coordinate(0, 0), PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
+        Planet planet = new Planet("test", new Coordinate(0, 0),
+                PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
 
         boolean result = planet.equals(null);
 
@@ -24,7 +25,8 @@ public class PlanetTest {
 
     @Test
     public void testEqualReturnsFalseWithNonplanet() {
-        Planet planet = new Planet("test", new Coordinate(0, 0), PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
+        Planet planet = new Planet("test", new Coordinate(0, 0),
+                PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
 
         boolean result = planet.equals("Test");
 
@@ -33,25 +35,30 @@ public class PlanetTest {
 
     @Test
     public void testEqualReturnsFalseWithDifferentPlanet() {
-        Planet planet = new Planet("test", new Coordinate(0, 0), PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
+        Planet planet = new Planet("test", new Coordinate(0, 0),
+                PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
 
-        Planet other = new Planet("test1", new Coordinate(0, 0), PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
+        Planet other = new Planet("test1", new Coordinate(0, 0),
+                PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
         boolean result = planet.equals(other);
 
         Assert.assertFalse(result);
 
-        other = new Planet("test", new Coordinate(1, 0), PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
+        other = new Planet("test", new Coordinate(1, 0),
+                PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
         result = planet.equals(other);
 
         Assert.assertFalse(result);
 
-        other = new Planet("test", new Coordinate(0, 0), PlanetResource.ARTISTIC, TechLevel.PRE_AGRICULTURE);
+        other = new Planet("test", new Coordinate(0, 0),
+                PlanetResource.ARTISTIC, TechLevel.PRE_AGRICULTURE);
         result = planet.equals(other);
 
         Assert.assertFalse(result);
 
 
-        other = new Planet("test", new Coordinate(0, 0), PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.HI_TECH);
+        other = new Planet("test", new Coordinate(0, 0),
+                PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.HI_TECH);
         result = planet.equals(other);
 
         Assert.assertFalse(result);
@@ -59,8 +66,10 @@ public class PlanetTest {
 
     @Test
     public void testEqualReturnsTrueWithEquality() {
-        Planet planet = new Planet("test", new Coordinate(0, 0), PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
-        Planet other = new Planet("test", new Coordinate(0, 0), PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
+        Planet planet = new Planet("test", new Coordinate(0, 0),
+                PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
+        Planet other = new Planet("test", new Coordinate(0, 0),
+                PlanetResource.NO_SPECIAL_RESOURCE, TechLevel.PRE_AGRICULTURE);
         boolean result = planet.equals(other);
 
         Assert.assertTrue(result);

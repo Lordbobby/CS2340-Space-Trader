@@ -24,23 +24,29 @@ class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
         val pointsEngineer = view.skill_engineer_value
 
         fun updateUnassignedPoints() {
-            pointsLeftTextView.text = fragment.getString(R.string.skill_selection_pointsLeft, getPointsLeft())
+            pointsLeftTextView.text =
+                    fragment.getString(R.string.skill_selection_pointsLeft, getPointsLeft())
         }
 
         fun updatePilotPoints() {
-            pointsPilot.text = fragment.getString(R.string.skill_points_current, getSkillPoints(Skill.PILOT))
+            pointsPilot.text =
+                    fragment.getString(R.string.skill_points_current, getSkillPoints(Skill.PILOT))
         }
 
         fun updateFighterPoints() {
-            pointsFighter.text = fragment.getString(R.string.skill_points_current, getSkillPoints(Skill.FIGHTER))
+            pointsFighter.text =
+                    fragment.getString(R.string.skill_points_current, getSkillPoints(Skill.FIGHTER))
         }
 
         fun updateTraderPoints() {
-            pointsTrader.text = fragment.getString(R.string.skill_points_current, getSkillPoints(Skill.TRADER))
+            pointsTrader.text =
+                    fragment.getString(R.string.skill_points_current, getSkillPoints(Skill.TRADER))
         }
 
         fun updateEngineerPoints() {
-            pointsEngineer.text = fragment.getString(R.string.skill_points_current, getSkillPoints(Skill.ENGINEER))
+            pointsEngineer.text = fragment.getString(
+                    R.string.skill_points_current, getSkillPoints(Skill.ENGINEER)
+            )
         }
 
         updateUnassignedPoints()
