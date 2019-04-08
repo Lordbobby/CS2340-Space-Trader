@@ -23,7 +23,7 @@ class PlanetMenuActivity: AppCompatActivity() {
 
         market_button.setOnClickListener{
                 startActivity(Intent(this, MarketMenuActivity::class.java))
-        } //marketbutton listener
+        } //marketButton listener
 
         save_button.setOnClickListener {
             viewModel.save()

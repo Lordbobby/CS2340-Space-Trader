@@ -1,7 +1,9 @@
 package edu.gatech.cs2340.spacetrader.viewmodel
 
+import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.entity.GameDifficulty
 import edu.gatech.cs2340.spacetrader.entity.ShipType
 import edu.gatech.cs2340.spacetrader.entity.SkillsData
@@ -16,8 +18,27 @@ class ConfigurationViewModel(private val view: AppCompatActivity) {
 
     private var player: Player? = null
     private var diff: GameDifficulty? = null
+    private val vmProviders = ArrayList<ConfigViewModelProvider>()
 
-    fun onDataSubmission(vmProviders: List<ConfigViewModelProvider>): String? {
+    fun handleFragmentAttach(fragment: Fragment?) {
+        if(fragment is ConfigViewModelProvider) {
+            vmProviders.add(fragment)
+        }
+    }
+
+    fun handleStartGameClick(): Boolean {
+        val toastText: String? = onDataSubmission()
+
+        if (toastText != null) {
+            Toast.makeText(view.applicationContext, toastText, Toast.LENGTH_SHORT).show()
+            return false
+        }
+
+        startGame()
+        return true
+    }
+
+    fun onDataSubmission(): String? {
         val dataMap = mutableMapOf<DataType, Any>()
 
         for (provider in vmProviders) {
