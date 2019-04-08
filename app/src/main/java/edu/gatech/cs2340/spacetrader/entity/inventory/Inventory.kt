@@ -9,7 +9,7 @@ abstract class Inventory: Serializable {
     abstract var size: Int
 
     fun addToInv(good: Good, v: Int) {
-        if (size + v < cap) {
+        if (size + v < cap && v > 0) {
             if (inv[good] == null) inv[good] = v else inv[good]!! + v
             size += v
         } else {
