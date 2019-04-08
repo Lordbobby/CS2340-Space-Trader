@@ -10,10 +10,10 @@ import edu.gatech.cs2340.spacetrader.util.Coordinate;
  */
 public class CoordinateEqualsTest {
 
-    @Test
     /**
      * Test for equals method
      */
+    @Test
     public void equals() {
         Coordinate c1 = new Coordinate(0, 0);
         Object fakeCoord = new Object();
