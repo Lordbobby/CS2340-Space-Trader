@@ -173,7 +173,8 @@
                     android:layout_toStartOf="@+id/skill_fighter_plusButton"
                     android:layout_toEndOf="@+id/skill_fighter_minusButton"
                     android:background="@drawable/skill_icon"
-                    app:srcCompat="@drawable/ic_sword" />
+                    app:srcCompat="@drawable/ic_sword"
+                    android:contentDescription="@string/skill_fighter"/>
 
                 <ImageButton
                     android:id="@+id/skill_fighter_plusButton"
@@ -261,7 +262,8 @@
                     android:layout_toStartOf="@+id/skill_trader_plusButton"
                     android:layout_toEndOf="@+id/skill_trader_minusButton"
                     android:background="@drawable/skill_icon"
-                    app:srcCompat="@drawable/ic_money" />
+                    app:srcCompat="@drawable/ic_money"
+                    android:contentDescription="@string/skill_trader"/>
 
                 <ImageButton
                     android:id="@+id/skill_trader_plusButton"
