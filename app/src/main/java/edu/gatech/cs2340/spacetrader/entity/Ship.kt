@@ -8,7 +8,7 @@ import java.io.Serializable
 class Ship(type: ShipType): Serializable {
     constructor() : this(ShipType.GNAT)
 
-    var type: ShipType = type
+    private var type: ShipType = type
         private set(value) {
             field = value
         }
@@ -20,7 +20,7 @@ class Ship(type: ShipType): Serializable {
     fun addFuel(fuelToAdd: Double) {
         fuel += fuelToAdd
     }
-    fun removeFuel(fuelToBeRemoved: Double) {
+    private fun removeFuel(fuelToBeRemoved: Double) {
         fuel -= fuelToBeRemoved
     }
     fun canTravel(planet1: Planet, planet2: Planet): Boolean {

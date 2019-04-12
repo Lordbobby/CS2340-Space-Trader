@@ -104,7 +104,7 @@ class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
         }
     }
 
-    fun addSkillPoint(skill : Skill) {
+    private fun addSkillPoint(skill : Skill) {
         //Log.d("SSVM", "Adding: ${usedSkillPoints} + 1 = ${usedSkillPoints + 1}")
         if (usedSkillPoints < MAX_SKILL_POINTS) {
             skills.addPoint(skill)
@@ -112,7 +112,7 @@ class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
         }
     }
 
-    fun removeSkillPoint(skill : Skill) {
+    private fun removeSkillPoint(skill : Skill) {
         //Log.d("SSVM", "Removing: ${usedSkillPoints} - 1 = ${usedSkillPoints - 1}")
         if (usedSkillPoints > 0 && skills.skillsMap[skill]!! > 0) {
             skills.removePoint(skill)
@@ -120,11 +120,11 @@ class SkillSelectionViewModel: SkilledData, ValidatableConfigViewModel {
         }
     }
 
-    fun getPointsLeft() : Int {
+    private fun getPointsLeft() : Int {
         return MAX_SKILL_POINTS - usedSkillPoints
     }
 
-    fun getSkillPoints(skill : Skill) : Int {
+    private fun getSkillPoints(skill : Skill) : Int {
         Log.d("SSVM", "Getting ${skills.skillsMap[skill]} points for $skill")
         return skills.skillsMap[skill]!!
     }
