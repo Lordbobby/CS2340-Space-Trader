@@ -10,7 +10,7 @@ abstract class Inventory: Serializable {
 
     fun addToInv(good: Good, v: Int) {
         if (size + v < cap && v > 0) {
-            if (inv[good] == null) inv[good] = v else inv[good]!! + v
+            if (inv[good] == null) inv[good] = v else inv[good] = inv[good]!! + v
             size += v
         } else {
             throw IllegalArgumentException(

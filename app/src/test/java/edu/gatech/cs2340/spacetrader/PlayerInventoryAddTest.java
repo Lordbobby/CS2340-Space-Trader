@@ -11,7 +11,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 /**
- * Test for the sell method in transactional
+ * Test for the addToInv method in PlayerInventory
  */
 public class PlayerInventoryAddTest {
 
@@ -49,7 +49,7 @@ public class PlayerInventoryAddTest {
 
         playerInventory.addToInv(Good.Firearms, 3);
         inventory.put(Good.Firearms, 3);
-        
+
         assertEquals(1, playerInventory.getInv().size());
         assertEquals(3, playerInventory.getSize());
         assertEquals(10, playerInventory.getCap());
