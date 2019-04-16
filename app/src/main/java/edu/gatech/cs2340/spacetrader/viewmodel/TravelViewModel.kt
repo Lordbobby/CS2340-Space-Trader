@@ -5,13 +5,17 @@ import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.entity.IncreaseEvent
 import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
+import edu.gatech.cs2340.spacetrader.model.encounter.EncounterManager
 import edu.gatech.cs2340.spacetrader.runnable.IncreaseEventRunnable
+import edu.gatech.cs2340.spacetrader.util.TravelStatus
 import edu.gatech.cs2340.spacetrader.views.TravelActivity
 import edu.gatech.cs2340.spacetrader.views.UniverseMapActivity
 import kotlinx.android.synthetic.main.activity_travel.*
 
 
 class TravelViewModel(private val view: TravelActivity) {
+    private val encounterMan = EncounterManager(view)
+
     fun addExtras(targetPlanet: Planet) {
         if ( targetPlanet.event != IncreaseEvent.NONE ) {
             view.event_msg.text = "WARNING! This planet is currently experiencing "+
@@ -20,14 +24,22 @@ class TravelViewModel(private val view: TravelActivity) {
     }
 
     fun attemptTravel(planet1 : Planet) {
-        val canTravel = (GameManager.INSTANCE!!.player.ship.canTravel(planet1,
-                GameManager.INSTANCE!!.currentPlanet))
+        val man = GameManager.INSTANCE!!
+        val status = TravelStatus(man.currentPlanet, planet1)
+        val encountered = encounterMan.attemptEncounter(status)
+
+        if (encountered) {
+            return
+        }
+
+        val canTravel = man.player.ship.canTravel(planet1,
+                man.currentPlanet)
 
         if (canTravel) {
-            IncreaseEventRunnable(GameManager.INSTANCE!!.provide(), 50).run()
-            GameManager.INSTANCE!!.currentPlanet = view.intent.extras!!["Planet"] as Planet
+            IncreaseEventRunnable(man.provide(), 50).run()
+            man.currentPlanet = view.intent.extras!!["Planet"] as Planet
             view.startActivity(Intent(view, UniverseMapActivity::class.java))
-            val fuel = String.format("%.2f", GameManager.INSTANCE!!.player.ship.getFuelLevel())
+            val fuel = String.format("%.2f", man.player.ship.getFuelLevel())
             val toast1 = Toast.makeText(view.applicationContext,
                     "You have $fuel fuel left",
                     Toast.LENGTH_SHORT)
