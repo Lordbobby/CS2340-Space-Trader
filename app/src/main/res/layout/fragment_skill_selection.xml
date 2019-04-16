@@ -94,7 +94,8 @@
                     android:layout_toStartOf="@+id/skill_pilot_plusButton"
                     android:layout_toEndOf="@+id/skill_pilot_minusButton"
                     android:background="@drawable/skill_icon"
-                    app:srcCompat="@drawable/ic_pilot" />
+                    app:srcCompat="@drawable/ic_pilot"
+                    android:contentDescription="@string/skill_pilot"/>
 
                 <ImageButton
                     android:id="@+id/skill_pilot_plusButton"
@@ -142,7 +143,8 @@
                     android:layout_marginEnd="0dp"
                     android:gravity="center"
                     android:text="@string/skill_fighter"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:contentDescription="@string/skill_fighter"/>
 
                 <ImageButton
                     android:id="@+id/skill_fighter_minusButton"
@@ -171,7 +173,8 @@
                     android:layout_toStartOf="@+id/skill_fighter_plusButton"
                     android:layout_toEndOf="@+id/skill_fighter_minusButton"
                     android:background="@drawable/skill_icon"
-                    app:srcCompat="@drawable/ic_sword" />
+                    app:srcCompat="@drawable/ic_sword"
+                    android:contentDescription="@string/skill_fighter"/>
 
                 <ImageButton
                     android:id="@+id/skill_fighter_plusButton"
@@ -229,7 +232,8 @@
                     android:layout_marginEnd="0dp"
                     android:gravity="center"
                     android:text="@string/skill_trader"
-                    android:textColor="@android:color/black" />
+                    android:textColor="@android:color/black"
+                    android:contentDescription="@string/skill_trader"/>
 
                 <ImageButton
                     android:id="@+id/skill_trader_minusButton"
@@ -258,7 +262,8 @@
                     android:layout_toStartOf="@+id/skill_trader_plusButton"
                     android:layout_toEndOf="@+id/skill_trader_minusButton"
                     android:background="@drawable/skill_icon"
-                    app:srcCompat="@drawable/ic_money" />
+                    app:srcCompat="@drawable/ic_money"
+                    android:contentDescription="@string/skill_trader"/>
 
                 <ImageButton
                     android:id="@+id/skill_trader_plusButton"
@@ -335,7 +340,8 @@
                     android:layout_toStartOf="@+id/skill_engineer_plusButton"
                     android:layout_toEndOf="@+id/skill_engineer_minusButton"
                     android:background="@drawable/skill_icon"
-                    app:srcCompat="@drawable/ic_handyman_tools" />
+                    app:srcCompat="@drawable/ic_handyman_tools"
+                    android:contentDescription="@string/skill_engineer"/>
 
                 <ImageButton
                     android:id="@+id/skill_engineer_plusButton"

@@ -32,5 +32,8 @@ class Planet(val name: String, val coordinate: Coordinate,
                 && techLevel == other.techLevel
     }
 
+//    override fun hashCode(): Int {
+//        return super.hashCode()
+//    }
 
 }

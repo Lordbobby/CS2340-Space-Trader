@@ -38,7 +38,7 @@ class ConfigurationViewModel(private val view: AppCompatActivity) {
         return true
     }
 
-    fun onDataSubmission(): String? {
+    private fun onDataSubmission(): String? {
         val dataMap = mutableMapOf<DataType, Any>()
 
         for (provider in vmProviders) {
@@ -64,7 +64,7 @@ class ConfigurationViewModel(private val view: AppCompatActivity) {
         return null
     }
 
-    fun startGame() {
+    private fun startGame() {
         val gameMan = GameManager(player!!, diff!!)
         val layout = view.configScreen
         val width = layout.width

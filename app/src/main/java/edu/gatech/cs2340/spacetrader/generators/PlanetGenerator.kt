@@ -6,7 +6,8 @@ import edu.gatech.cs2340.spacetrader.entity.TechLevel
 import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.util.Coordinate
 
-class PlanetGenerator(private var planets: Int, private val names: NameProvider, private val coordinateGen: CoordinateGen): MappedGenerator<Planet> {
+class PlanetGenerator(private var planets: Int, private val names: NameProvider,
+                      private val coordinateGen: CoordinateGen): MappedGenerator<Planet> {
     private val resourceTypes = PlanetResource.values()
     private val techLevels = TechLevel.values()
 
