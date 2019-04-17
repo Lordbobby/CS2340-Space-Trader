@@ -12,7 +12,9 @@ class PirateEncounter: Encounter {
     override fun initiateEncounter(player: Player, status: TravelStatus) {
         this.status = status
 
+        val popUp = PiratePopUp( view!! )
 
+        popUp.display()
     }
 
     override fun setView(view: AppCompatActivity) {

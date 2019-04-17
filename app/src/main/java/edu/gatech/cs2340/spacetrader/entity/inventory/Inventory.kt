@@ -29,4 +29,34 @@ abstract class Inventory: Serializable {
             )
         }
     }
+
+    fun addAllToInv(goods: Map<Good, Int>) : Map<Good, Int> {
+        val goodsCopy: MutableMap<Good, Int> = goods.toMutableMap()
+
+        for ( entry: Map.Entry<Good, Int> in goods.entries ) {
+            try {
+                addToInv( entry.key, entry.value )
+                goodsCopy.remove( entry.key )
+            } catch ( e: IllegalArgumentException) {
+                break
+            }
+        }
+
+        return goodsCopy
+    }
+
+    fun removeAllFromInv(goods: Map<Good, Int>) : Map<Good, Int> {
+        val goodsCopy: MutableMap<Good, Int> = goods.toMutableMap()
+
+        for ( entry: Map.Entry<Good, Int> in goods.entries ) {
+            try {
+                removeFromInv( entry.key, entry.value )
+                goodsCopy.remove( entry.key )
+            } catch ( e: IllegalArgumentException) {
+                break
+            }
+        }
+
+        return goodsCopy
+    }
 }
