@@ -14,15 +14,28 @@ class Ship(type: ShipType): Serializable {
         }
 
     var fuel: Double = 20.0
+    var health: Int = type.health
+
     fun getFuelLevel ():Double {
         return fuel
     }
+
     fun addFuel(fuelToAdd: Double) {
         fuel += fuelToAdd
     }
+
     private fun removeFuel(fuelToBeRemoved: Double) {
         fuel -= fuelToBeRemoved
     }
+
+    fun addHealth(healthToAdd: Int) {
+        fuel += healthToAdd
+    }
+
+    private fun removeHealth(healthToBeRemoved: Int) {
+        fuel -= healthToBeRemoved
+    }
+
     fun canTravel(planet1: Planet, planet2: Planet): Boolean {
         var distance = Math.sqrt(Math.pow((planet2.coordinate.x - planet1.coordinate.x).toDouble(),
                 2.0) + Math.pow((planet2.coordinate.y- planet1.coordinate.y).toDouble(), 2.0))

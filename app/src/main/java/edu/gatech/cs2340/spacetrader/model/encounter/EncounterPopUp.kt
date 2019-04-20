@@ -13,13 +13,19 @@ import edu.gatech.cs2340.spacetrader.R
 abstract class EncounterPopUp(private val view: AppCompatActivity, private val title: String) {
     private var window: PopupWindow? = null
 
-    abstract fun onAttackClicked(window: PopupWindow)
+    abstract fun onChoice1(window: PopupWindow)
 
-    abstract fun onFleeClicked(window: PopupWindow)
+    abstract fun onChoice2(window: PopupWindow)
 
-    abstract fun onSurrenderClicked(window: PopupWindow)
+    abstract fun onChoice3(window: PopupWindow)
 
     abstract fun getDescription(): String
+
+    abstract fun setChoice1(choice: Button)
+
+    abstract fun setChoice2(choice: Button)
+
+    abstract fun setChoice3(choice: Button)
 
     fun display() {
         val inflater = view.layoutInflater
@@ -32,20 +38,20 @@ abstract class EncounterPopUp(private val view: AppCompatActivity, private val t
             popUpWindow.elevation = 5.0f
         }
 
-        val attackButton = statusView.findViewById<Button>( R.id.button1 )
-        val fleeButton = statusView.findViewById<Button>( R.id.button2 )
-        val surrenderButton = statusView.findViewById<Button>( R.id.button3 )
+        val choice1 = statusView.findViewById<Button>( R.id.button1 )
+        val choice2 = statusView.findViewById<Button>( R.id.button2 )
+        val choice3 = statusView.findViewById<Button>( R.id.button3 )
 
-        attackButton.setOnClickListener {
-            onAttackClicked( popUpWindow )
+        choice1.setOnClickListener {
+            onChoice1( popUpWindow )
         }
 
-        fleeButton.setOnClickListener {
-            onFleeClicked( popUpWindow )
+        choice2.setOnClickListener {
+            onChoice2( popUpWindow )
         }
 
-        surrenderButton.setOnClickListener {
-            onSurrenderClicked( popUpWindow )
+        choice3.setOnClickListener {
+            onChoice3( popUpWindow )
         }
 
         val title = statusView.findViewById<TextView>( R.id.title )
@@ -53,6 +59,9 @@ abstract class EncounterPopUp(private val view: AppCompatActivity, private val t
 
         title.text = this.title
         desc.text = getDescription()
+        setChoice1(choice1)
+        setChoice2(choice2)
+        setChoice3(choice3)
 
         popUpWindow.showAtLocation( statusView, Gravity.CENTER, 0, 0 )
 

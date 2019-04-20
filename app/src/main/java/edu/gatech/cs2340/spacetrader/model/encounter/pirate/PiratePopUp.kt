@@ -1,14 +1,16 @@
 package edu.gatech.cs2340.spacetrader.model.encounter.pirate
 
 import android.support.v7.app.AppCompatActivity
+import android.widget.Button
 import android.widget.PopupWindow
 import edu.gatech.cs2340.spacetrader.entity.Good
 import edu.gatech.cs2340.spacetrader.model.GameManager
+import edu.gatech.cs2340.spacetrader.model.encounter.Encounter
 import edu.gatech.cs2340.spacetrader.model.encounter.EncounterPopUp
 import kotlin.random.Random
 
 class PiratePopUp(view: AppCompatActivity, title: String = "Pirate Encounter") : EncounterPopUp(view, title) {
-    override fun onAttackClicked(window: PopupWindow) {
+    override fun onChoice1(window: PopupWindow) {
         if ( Math.random() <= .6f ) {
             plunderPirate()
         } else {
@@ -16,7 +18,7 @@ class PiratePopUp(view: AppCompatActivity, title: String = "Pirate Encounter") :
         }
     }
 
-    override fun onFleeClicked(window: PopupWindow) {
+    override fun onChoice2(window: PopupWindow) {
         if ( Math.random() <= .2f ) {
             plunderByPirate()
         } else {
@@ -24,12 +26,24 @@ class PiratePopUp(view: AppCompatActivity, title: String = "Pirate Encounter") :
         }
     }
 
-    override fun onSurrenderClicked(window: PopupWindow) {
+    override fun onChoice3(window: PopupWindow) {
         plunderByPirate()
     }
 
     override fun getDescription(): String {
         return "You have encountered a pirate while travelling and he has begun attacking your ship! Will you attack, flee, or surrender?!"
+    }
+
+    override fun setChoice1(choice: Button) {
+        choice.text = "Attack"
+    }
+
+    override fun setChoice2(choice: Button) {
+        choice.text = "Flee"
+    }
+
+    override fun setChoice3(choice: Button) {
+        choice.text = "Surrender"
     }
 
     private fun plunderByPirate() {
