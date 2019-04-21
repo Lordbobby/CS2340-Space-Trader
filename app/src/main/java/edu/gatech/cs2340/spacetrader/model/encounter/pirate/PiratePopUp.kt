@@ -5,17 +5,20 @@ import android.widget.Button
 import android.widget.PopupWindow
 import edu.gatech.cs2340.spacetrader.entity.Good
 import edu.gatech.cs2340.spacetrader.model.GameManager
-import edu.gatech.cs2340.spacetrader.model.encounter.Encounter
 import edu.gatech.cs2340.spacetrader.model.encounter.EncounterPopUp
+import edu.gatech.cs2340.spacetrader.util.TravelStatus
 import kotlin.random.Random
 
-class PiratePopUp(view: AppCompatActivity, title: String = "Pirate Encounter") : EncounterPopUp(view, title) {
+class PiratePopUp(view: AppCompatActivity, val status: TravelStatus, title: String = "Pirate Encounter") : EncounterPopUp(view, title, status) {
     override fun onChoice1(window: PopupWindow) {
         if ( Math.random() <= .6f ) {
             plunderPirate()
         } else {
             plunderByPirate()
         }
+
+        val gm = GameManager.INSTANCE!!
+        gm.currentPlanet = status.nextPlanet
     }
 
     override fun onChoice2(window: PopupWindow) {
@@ -24,10 +27,16 @@ class PiratePopUp(view: AppCompatActivity, title: String = "Pirate Encounter") :
         } else {
             setFinalDisplay("You successfully fled the pirate!")
         }
+
+        val gm = GameManager.INSTANCE!!
+        gm.currentPlanet = status.nextPlanet
     }
 
     override fun onChoice3(window: PopupWindow) {
         plunderByPirate()
+
+        val gm = GameManager.INSTANCE!!
+        gm.currentPlanet = status.nextPlanet
     }
 
     override fun getDescription(): String {
