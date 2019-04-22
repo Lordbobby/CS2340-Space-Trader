@@ -1,5 +1,6 @@
 package edu.gatech.cs2340.spacetrader.model.encounter
 
+import android.content.Intent
 import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
@@ -9,6 +10,8 @@ import android.widget.Button
 import android.widget.PopupWindow
 import android.widget.TextView
 import edu.gatech.cs2340.spacetrader.R
+import edu.gatech.cs2340.spacetrader.util.TravelStatus
+import edu.gatech.cs2340.spacetrader.views.UniverseMapActivity
 
 abstract class EncounterPopUp(protected val view: AppCompatActivity, private val title: String) {
     protected var window: PopupWindow? = null
@@ -81,6 +84,7 @@ abstract class EncounterPopUp(protected val view: AppCompatActivity, private val
         button2.text = "Close"
         button2.setOnClickListener {
             window!!.dismiss()
+            view.startActivity(Intent(view, UniverseMapActivity::class.java))
         }
 
         val desc = statusView.findViewById<TextView>( R.id.description )
