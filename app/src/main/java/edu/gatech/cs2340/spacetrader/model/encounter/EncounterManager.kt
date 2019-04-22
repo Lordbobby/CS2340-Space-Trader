@@ -19,7 +19,7 @@ class EncounterManager(private val view: AppCompatActivity) {
 
     fun attemptEncounter(status: TravelStatus): Boolean {
         if ( Math.random() < .20f ) {
-//        if (true) {
+//       if (true) {
             val encounter = encounters.random().newInstance()
             val instance = GameManager.INSTANCE!!
 

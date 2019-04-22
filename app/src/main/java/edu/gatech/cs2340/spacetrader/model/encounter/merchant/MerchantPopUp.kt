@@ -46,6 +46,12 @@ class MerchantPopUp(view: AppCompatActivity, val status: TravelStatus, title: St
     override fun onChoice3(window: PopupWindow) {
         if(Math.random() < .5f) {
             plunder()
+        } else {
+            GameManager.INSTANCE!!.player.ship.health *= Math.random()
+            GameManager.INSTANCE!!.currentPlanet = GameManager.INSTANCE!!.universe.getRandomPlanet()
+            setFinalDisplay( "Your attack failed and the merchant overwhelmed you, but you managed" +
+            "to escape to ${GameManager.INSTANCE!!.currentPlanet} with ${GameManager.INSTANCE!!.player.ship.health}" +
+            "health left")
         }
 
         val gm = GameManager.INSTANCE!!
