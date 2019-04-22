@@ -6,7 +6,7 @@ import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.util.TravelStatus
 import kotlin.random.Random
 
-abstract class PlunderEncounterPopUp() : EncounterPopUp() {
+abstract class PlunderEncounterPopUp(view: AppCompatActivity, private val title: String, status: TravelStatus) : EncounterPopUp(view, title, status) {
     protected fun plunder(){
         val goods: HashSet<Good> = HashSet()
         val plundered: HashMap<Good, Int> = HashMap()

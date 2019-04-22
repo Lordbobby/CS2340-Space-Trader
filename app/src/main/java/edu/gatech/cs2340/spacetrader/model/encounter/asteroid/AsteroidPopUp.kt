@@ -10,6 +10,7 @@ import edu.gatech.cs2340.spacetrader.util.TravelStatus
 
 class AsteroidPopUp(view: AppCompatActivity, title: String, var status: TravelStatus) : EncounterPopUp(view, title, status) {
 
+
     override fun onChoice1(window: PopupWindow) {
         if ( Math.random() <= .3f ) {
             success()
@@ -56,6 +57,7 @@ class AsteroidPopUp(view: AppCompatActivity, title: String, var status: TravelSt
     }
 
     private fun home() {
+        status.interrupted = true
         setFinalDisplay( "You have successfully returned home")
     }
 }

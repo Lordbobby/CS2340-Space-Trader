@@ -12,9 +12,9 @@ import android.widget.TextView
 import edu.gatech.cs2340.spacetrader.R
 import edu.gatech.cs2340.spacetrader.util.TravelStatus
 import edu.gatech.cs2340.spacetrader.views.UniverseMapActivity
+abstract class EncounterPopUp(private val view: AppCompatActivity, private val title: String, private val status: TravelStatus){
 
-abstract class EncounterPopUp(private val view: AppCompatActivity, private val title: String) {
-    private var window: PopupWindow? = null
+    protected var window: PopupWindow? = null
 
     abstract fun onChoice1(window: PopupWindow)
 
