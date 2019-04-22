@@ -22,8 +22,7 @@ class PlanetMenuActivity: AppCompatActivity() {
         viewModel.addExtras( GameManager.INSTANCE!!.currentPlanet )
 
         market_button.setOnClickListener{
-                startActivity(Intent(this, MarketMenuActivity::class.java).apply {
-                    putExtra("merchant", false) })
+                startActivity(Intent(this, MarketMenuActivity::class.java))
         } //marketButton listener
 
         save_button.setOnClickListener {

@@ -4,8 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import edu.gatech.cs2340.spacetrader.R
-import edu.gatech.cs2340.spacetrader.entity.Good
-import edu.gatech.cs2340.spacetrader.entity.inventory.Inventory
 import edu.gatech.cs2340.spacetrader.model.transaction.TransactionMode
 import edu.gatech.cs2340.spacetrader.viewmodel.market.MarketMenuViewModel
 import kotlinx.android.synthetic.main.activity_market_menu.*
@@ -20,9 +18,7 @@ class MarketMenuActivity: AppCompatActivity() {
 
         buy_button.setOnClickListener{
             startActivity(Intent(this, MarketActivity::class.java).apply {
-                putExtra("mode", TransactionMode.BUY)
-                putExtra("merchant", intent.getSerializableExtra("merchant") as Boolean)
-                putExtra("stock", intent.getSerializableExtra("stock") as Inventory?) })
+                putExtra("mode", TransactionMode.BUY) })
         } //buy button listener
 
         sell_button.setOnClickListener{

@@ -13,16 +13,12 @@ import edu.gatech.cs2340.spacetrader.model.transaction.TransactionMode
 import edu.gatech.cs2340.spacetrader.views.market.GoodQuantityPickerDialog
 
 class MarketViewModel(private val activity: AppCompatActivity) {
-    fun populateMarketList(linearLayout: LinearLayout, mode: TransactionMode, merchant: Boolean?) {
+    fun populateMarketList(linearLayout: LinearLayout, mode: TransactionMode) {
         val inventory: Inventory
 
         if(mode == TransactionMode.BUY) {
-            if(merchant!!) {
-                inventory = activity.intent.getSerializableExtra("stock") as Inventory
-            } else {
-                inventory = GameManager.INSTANCE!!.currentPlanet.inventory
-                Log.d("market", "buying ${inventory.inv.size}")
-            }
+            inventory = GameManager.INSTANCE!!.currentPlanet.inventory
+            Log.d("market", "buying ${inventory.inv.size}")
         } else {
             inventory = GameManager.INSTANCE!!.player.ship.inventory
             Log.d("market", "selling ${inventory.inv.size}")
