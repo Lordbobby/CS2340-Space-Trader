@@ -7,10 +7,11 @@ import android.widget.Button
 import android.widget.PopupWindow
 import edu.gatech.cs2340.spacetrader.entity.inventory.MerchantInventory
 import edu.gatech.cs2340.spacetrader.model.GameManager
-import edu.gatech.cs2340.spacetrader.model.encounter.EncounterPopUp
+import edu.gatech.cs2340.spacetrader.model.encounter.PlunderEncounterPopUp
+import edu.gatech.cs2340.spacetrader.util.TravelStatus
 import edu.gatech.cs2340.spacetrader.views.market.MarketMenuActivity
 
-class MerchantPopUp(view: AppCompatActivity, title: String = "Merchant Encounter") : EncounterPopUp(view, title) {
+class MerchantPopUp(view: AppCompatActivity, val status: TravelStatus, title: String = "Merchant Encounter") : PlunderEncounterPopUp(view, title, status) {
     val stock = MerchantInventory()
     override fun setChoice1(choice: Button) {
         choice.visibility = View.GONE
@@ -21,6 +22,7 @@ class MerchantPopUp(view: AppCompatActivity, title: String = "Merchant Encounter
         val layoutParams = choice.layoutParams
         layoutParams.width = 550
         choice.layoutParams = layoutParams
+
     }
 
     override fun setChoice3(choice: Button) {
@@ -36,10 +38,18 @@ class MerchantPopUp(view: AppCompatActivity, title: String = "Merchant Encounter
 
     override fun onChoice2(window: PopupWindow) {
         attemptTrade()
+
+        val gm = GameManager.INSTANCE!!
+        gm.currentPlanet = status.nextPlanet
     }
 
     override fun onChoice3(window: PopupWindow) {
+        if(Math.random() < .5f) {
+            plunder()
+        }
 
+        val gm = GameManager.INSTANCE!!
+        gm.currentPlanet = status.nextPlanet
     }
 
     override fun getDescription(): String {
@@ -56,9 +66,5 @@ class MerchantPopUp(view: AppCompatActivity, title: String = "Merchant Encounter
             setFinalDisplay("The merchant doesn't seem interested in trading...")
         } //if trader is interested
     } //attemptTrade
-
-    private fun plunder() {
-
-    }
 
 }

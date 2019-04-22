@@ -13,26 +13,37 @@ import edu.gatech.cs2340.spacetrader.model.transaction.TransactionMode
 import edu.gatech.cs2340.spacetrader.views.market.GoodQuantityPickerDialog
 
 class MarketViewModel(private val activity: AppCompatActivity) {
-    fun populateMarketList(linearLayout: LinearLayout, mode: TransactionMode) {
+    fun populateMarketList(linearLayout: LinearLayout, mode: TransactionMode, merchant: Boolean?) {
         val inventory: Inventory
+        val notPlayerInventory: Inventory
 
         if(mode == TransactionMode.BUY) {
-            inventory = GameManager.INSTANCE!!.currentPlanet.inventory
-            Log.d("market", "buying ${inventory.inv.size}")
+            if(merchant!!) {
+                inventory = activity.intent.getSerializableExtra("stock") as Inventory
+            } else {
+                inventory = GameManager.INSTANCE!!.currentPlanet.inventory
+                Log.d("market", "buying ${inventory.inv.size}")
+            }
         } else {
             inventory = GameManager.INSTANCE!!.player.ship.inventory
             Log.d("market", "selling ${inventory.inv.size}")
         } //if buying or selling
 
+        if(merchant!!) {
+            notPlayerInventory = activity.intent.getSerializableExtra("stock") as Inventory
+        } else {
+            notPlayerInventory = GameManager.INSTANCE!!.currentPlanet.inventory
+        }
+
         inventory.inv.forEach {
             Log.d("market", "$mode triggered")
-            val goodCard = makeGoodCard(it.key, it.value, mode)
+            val goodCard = makeGoodCard(it.key, it.value, mode, notPlayerInventory)
             linearLayout.addView(goodCard)
         } //for each item in inventory
     } //populateMarketList
 
     @SuppressLint("SetTextI18n")
-    private fun makeGoodCard(good: Good, quantity: Int, mode: TransactionMode): CardView {
+    private fun makeGoodCard(good: Good, quantity: Int, mode: TransactionMode, notPlayerInventory: Inventory): CardView {
         val goodCard = CardView(activity)
         val cardLinear = LinearLayout(activity)
         val goodName = TextView(activity)
@@ -52,7 +63,7 @@ class MarketViewModel(private val activity: AppCompatActivity) {
 
         goodCard.addView(cardLinear)
         goodCard.setOnClickListener {
-            val dialog = GoodQuantityPickerDialog(activity, good, quantity, mode.provide())
+            val dialog = GoodQuantityPickerDialog(activity, good, quantity, mode.provide(), notPlayerInventory)
             dialog.show()
         } //goodCard click Listener
         return goodCard

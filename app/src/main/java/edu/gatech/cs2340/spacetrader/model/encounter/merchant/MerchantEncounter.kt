@@ -17,7 +17,7 @@ class MerchantEncounter: Encounter {
     override fun initiateEncounter(player: Player, status: TravelStatus) {
         this.status = status
 
-        val popUp = MerchantPopUp(view!!)
+        val popUp = MerchantPopUp(view!!, status)
 
         popUp.display()
     } //initiateEncounter

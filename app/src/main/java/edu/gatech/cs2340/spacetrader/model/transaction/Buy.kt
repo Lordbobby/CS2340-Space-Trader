@@ -3,11 +3,12 @@ package edu.gatech.cs2340.spacetrader.model.transaction
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import edu.gatech.cs2340.spacetrader.entity.Good
+import edu.gatech.cs2340.spacetrader.entity.inventory.Inventory
 import edu.gatech.cs2340.spacetrader.model.GameManager
 
 class Buy: Transactional {
 
-    override fun performTransaction(good: Good, amount: Int, activity: AppCompatActivity) {
+    override fun performTransaction(good: Good, amount: Int, activity: AppCompatActivity, seller:Inventory) {
         val manager = GameManager.INSTANCE!!
         val currPlanet = manager.currentPlanet
         val player = manager.player
@@ -22,7 +23,7 @@ class Buy: Transactional {
             else -> {
                 player.ship.inventory.addToInv(good, amount)
 
-                currPlanet.inventory.removeFromInv(good, amount)
+                seller.removeFromInv(good, amount)
                 manager.player.credits = playerBalance - total
             }
         } //if total exceeds player money
