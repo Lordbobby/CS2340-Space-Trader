@@ -10,8 +10,8 @@ import android.widget.PopupWindow
 import android.widget.TextView
 import edu.gatech.cs2340.spacetrader.R
 
-abstract class EncounterPopUp(private val view: AppCompatActivity, private val title: String) {
-    private var window: PopupWindow? = null
+abstract class EncounterPopUp(protected val view: AppCompatActivity, private val title: String) {
+    protected var window: PopupWindow? = null
 
     abstract fun onChoice1(window: PopupWindow)
 

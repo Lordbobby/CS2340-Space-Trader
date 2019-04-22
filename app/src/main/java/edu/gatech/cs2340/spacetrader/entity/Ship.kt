@@ -13,7 +13,7 @@ class Ship(type: ShipType): Serializable {
             field = value
         }
 
-    var fuel: Double = 20.0
+    var fuel: Double = 60.0
     var health: Int = type.health
 
     fun getFuelLevel ():Double {
@@ -45,7 +45,7 @@ class Ship(type: ShipType): Serializable {
             return true
         }
         Log.d("myTag","Can travel is returning false")
-        return false
+        return true
     }
 
     val inventory: PlayerInventory = PlayerInventory(type.cargoCap)
