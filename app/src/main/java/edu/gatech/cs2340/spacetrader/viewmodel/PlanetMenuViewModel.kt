@@ -14,10 +14,11 @@ import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.model.saving.Savable
 import edu.gatech.cs2340.spacetrader.model.saving.SerialSave
+import edu.gatech.cs2340.spacetrader.model.saving.database.DatabaseSave
 import kotlinx.android.synthetic.main.activity_travel.*
 
 class PlanetMenuViewModel(private val view: AppCompatActivity) {
-    fun save() {
+    fun saveSerial() {
         val saver: Savable = SerialSave()
         val result = if(saver.save(GameManager.INSTANCE!!, GameManager.SIZE,
                         view.applicationContext)) {
@@ -27,6 +28,17 @@ class PlanetMenuViewModel(private val view: AppCompatActivity) {
         }
         Toast.makeText(view, result, Toast.LENGTH_SHORT).show()
     } //saveButton listener
+
+    fun saveDB() {
+        val saver: Savable = DatabaseSave(view, GameManager.INSTANCE!!.player.name)
+        val result = if(saver.save(GameManager.INSTANCE!!, GameManager.SIZE,
+                        view.applicationContext)) {
+            "Save Successful"
+        } else {
+            "Save failed, try again later"
+        }
+        Toast.makeText(view, result, Toast.LENGTH_SHORT).show()
+    }
 
     fun addExtras(targetPlanet: Planet) {
         if ( targetPlanet.event != IncreaseEvent.NONE ) {
@@ -55,11 +67,13 @@ class PlanetMenuViewModel(private val view: AppCompatActivity) {
         val planetText = statusView.findViewById<TextView>( R.id.current_planet )
         val fuelText = statusView.findViewById<TextView>( R.id.current_fuel )
         val coinsText = statusView.findViewById<TextView>( R.id.current_coins )
+        val nameText = statusView.findViewById<TextView>(R.id.nameDisp)
         val instance = GameManager.INSTANCE!!
 
         planetText.text = "Planet: " + instance.currentPlanet.name
         fuelText.text = "Fuel: " + instance.player.ship.fuel
         coinsText.text = "Coins: " + instance.player.credits
+        nameText.text = "Name: " + instance.player.name
 
         popUpWindow.showAtLocation( closeButton, Gravity.CENTER, 0, 0 )
     }

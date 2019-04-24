@@ -8,7 +8,7 @@ import java.io.Serializable
 class Ship(type: ShipType): Serializable {
     constructor() : this(ShipType.GNAT)
 
-    private var type: ShipType = type
+    var type: ShipType = type
         private set(value) {
             field = value
         }
@@ -48,7 +48,7 @@ class Ship(type: ShipType): Serializable {
         return false
     }
 
-    val inventory: PlayerInventory = PlayerInventory(type.cargoCap)
+    var inventory: PlayerInventory = PlayerInventory(type.cargoCap)
 
     fun updateShip(shipType: ShipType) {
         //When you do, make sure you transfer that ship's inventory

@@ -27,8 +27,12 @@ class PlanetMenuActivity: AppCompatActivity() {
         } //marketButton listener
 
         save_button.setOnClickListener {
-            viewModel.save()
+            viewModel.saveSerial()
         } //saveButton click listener
+
+        db_save_button.setOnClickListener {
+            viewModel.saveDB()
+        }
 
         status_button.setOnClickListener {
             viewModel.showStatus()

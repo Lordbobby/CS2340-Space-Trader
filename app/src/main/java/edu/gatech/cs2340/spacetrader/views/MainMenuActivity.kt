@@ -24,5 +24,9 @@ class MainMenuActivity : AppCompatActivity() {
         loadGameButton.setOnClickListener{
             viewModel.load()
         } //loadGameButton click listener
+
+        dbLoad.setOnClickListener {
+            viewModel.loadDb()
+        }
     } //onCreate
 } //MainMenuActivity

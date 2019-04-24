@@ -5,7 +5,7 @@ import edu.gatech.cs2340.spacetrader.util.Coordinate
 import java.io.Serializable
 
 class Universe(generator: SetGenerator<SolarSystem>): Serializable {
-    private val systems: Set<SolarSystem> = generator.generate()
+    var systems: Set<SolarSystem> = generator.generate()
 
     fun calculateClosePlanets(coord: Coordinate, range: Int = 7): Map<Coordinate, Planet> {
         val closeSystems = hashMapOf<Coordinate, Planet>()

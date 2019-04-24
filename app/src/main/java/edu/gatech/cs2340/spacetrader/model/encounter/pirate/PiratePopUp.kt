@@ -12,7 +12,7 @@ import kotlin.random.Random
 class PiratePopUp(view: AppCompatActivity, val status: TravelStatus, title: String = "Pirate Encounter") : PlunderEncounterPopUp(view, title, status) {
     override fun onChoice1(window: PopupWindow) {
         if ( Math.random() <= .6f ) {
-            plunderPirate()
+            plunder()
         } else {
             plunderByPirate()
         }
@@ -80,28 +80,6 @@ class PiratePopUp(view: AppCompatActivity, val status: TravelStatus, title: Stri
         }
 
         displayFinalScreen( "The pirate plundered your ship and took:", plundered )
-    }
-
-    private fun plunderPirate() {
-        val goods: HashSet<Good> = HashSet()
-        val plundered: HashMap<Good, Int> = HashMap()
-
-        goods.addAll( Good.values() )
-
-        for ( i in 1..Random.nextInt( 4 ) ) {
-            val good = goods.random()
-
-            goods.remove( good )
-            plundered[good] = 1 + Random.nextInt( 4 )
-        }
-
-        val notAdded = GameManager.INSTANCE!!.player.ship.inventory.addAllToInv( plundered )
-
-        notAdded.keys.forEach {
-            plundered.remove( it )
-        }
-
-        displayFinalScreen( "You plundered the pirate and received:", plundered )
     }
 
     private fun displayFinalScreen(desc: String, plundered: Map<Good, Int>) {
