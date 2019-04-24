@@ -172,7 +172,7 @@ class DatabaseHandler(private val context: Context): SQLiteOpenHelper(context, "
                                 planetInv.addToInv(Good.values()[good], amount)
                             } while (planetIvnData.moveToNext())
                         }
-                        planet.inventory = planetInv
+                        //planet.inventory = planetInv
 
                     } while(planets.moveToNext())
                 } //for j 0 to planets.count
