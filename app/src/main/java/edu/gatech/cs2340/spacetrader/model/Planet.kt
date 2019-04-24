@@ -12,7 +12,7 @@ class Planet(val name: String, val coordinate: Coordinate,
 
     var event: IncreaseEvent = IncreaseEvent.NONE
     var solarSystem: SolarSystem? = null
-    val inventory: PlanetInventory = PlanetInventory(this)
+    var inventory: PlanetInventory = PlanetInventory(this)
 
     override fun toString(): String {
         return "{name=$name,coord=$coordinate,resource=$resource,tech_level=$techLevel}"

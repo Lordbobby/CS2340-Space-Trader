@@ -102,6 +102,7 @@ class DatabaseHandler(private val context: Context): SQLiteOpenHelper(context, "
                 planCV.put("system", color)
                 if(planet == it.value){
                     planCV.put("currentPlanet", 1)
+                    Log.d("centers save", planet.coordinate.x.toString() + "  " + planet.coordinate.y.toString())
                 } else {
                     planCV.put("currentPlanet", 0)
                 }
@@ -144,6 +145,7 @@ class DatabaseHandler(private val context: Context): SQLiteOpenHelper(context, "
                 val planets = db.rawQuery(planetsQuery, null)
                 val systemMap = HashMap<Coordinate, Planet>()
                 val system = SolarSystem()
+                system.color = color
                 system.planets = systemMap
 
                 if(planets.moveToFirst()) {
@@ -156,10 +158,12 @@ class DatabaseHandler(private val context: Context): SQLiteOpenHelper(context, "
                         val pTech = TechLevel.values()[planets.getInt(planets.getColumnIndex("techLevel"))]
                         val planet = Planet(pName, pCoord, pResource, pTech)
                         if (planets.getInt(planets.getColumnIndex("currentPlanet")) == 1) {
+                            Log.d("centers save", planet.coordinate.x.toString() + "  " + planet.coordinate.y.toString())
                             currPlanet = planet
                             Log.d("sq null", "hello")
                         }
                         systemMap[pCoord] = planet
+                        planet.solarSystem = system
 
                         val planetInvQuery = "select * from items where planet='$pName'"
                         val planetIvnData = db.rawQuery(planetInvQuery, null)
@@ -168,11 +172,10 @@ class DatabaseHandler(private val context: Context): SQLiteOpenHelper(context, "
                             do{
                                 val good = planetIvnData.getInt(planetIvnData.getColumnIndex("name"))
                                 val amount = planetIvnData.getInt(planetIvnData.getColumnIndex("amount"))
-                                Log.d("planinv", amount.toString())
+                                Log.d("planinv", planetInv.cap.toString())
                                 planetInv.addToInv(Good.values()[good], amount)
                             } while (planetIvnData.moveToNext())
                         }
-                        //planet.inventory = planetInv
 
                     } while(planets.moveToNext())
                 } //for j 0 to planets.count
@@ -222,6 +225,7 @@ class DatabaseHandler(private val context: Context): SQLiteOpenHelper(context, "
         db.close()
         val manager = GameManager(player, difficulty)
         manager.currentPlanet = currPlanet!!
+        manager.universe = universe
         Log.d("sqnull", currPlanet.name)
         return manager
     } //readGame

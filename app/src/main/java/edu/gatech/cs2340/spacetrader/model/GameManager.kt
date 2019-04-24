@@ -9,7 +9,7 @@ import java.io.Serializable
 class GameManager(val player: Player, val difficulty: GameDifficulty): UniverseProvider,
         Serializable {
 
-    val universe: Universe = Universe(UniverseGen())
+    var universe: Universe = Universe(UniverseGen())
     var currentPlanet: Planet = universe.getRandomPlanet()
 
     override fun provide(): Universe {

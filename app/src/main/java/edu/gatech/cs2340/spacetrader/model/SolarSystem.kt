@@ -7,7 +7,7 @@ import java.io.Serializable
 class SolarSystem(generator: MappedGenerator<Planet>): Serializable {
     constructor():this(PlanetGenerator(0, NameProvider(), CoordinateGen()))
     var planets = generator.generate()
-    val color = ColorGenerator().generate()
+    var color = ColorGenerator().generate()
 
     init {
         planets.values.forEach {

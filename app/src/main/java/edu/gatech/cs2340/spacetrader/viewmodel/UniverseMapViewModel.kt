@@ -55,6 +55,7 @@ class UniverseMapViewModel(private val view: UniverseMapActivity) {
         val center = GameManager.INSTANCE!!.currentPlanet
         val gen = MapGenerator(GameManager.INSTANCE!!, center.coordinate, ROWS, COLUMNS)
         val map = gen.generate()
+        Log.d("center planet", map.containsValue(center).toString())
         Log.d("Planet", center.name)
         for (c in 0 until COLUMNS) {
             for (r in 0 until ROWS) {

@@ -1,5 +1,7 @@
 package edu.gatech.cs2340.spacetrader.generators
 
+import android.util.Log
+import edu.gatech.cs2340.spacetrader.model.GameManager
 import edu.gatech.cs2340.spacetrader.model.Planet
 import edu.gatech.cs2340.spacetrader.model.interfaces.UniverseProvider
 import edu.gatech.cs2340.spacetrader.util.Coordinate
