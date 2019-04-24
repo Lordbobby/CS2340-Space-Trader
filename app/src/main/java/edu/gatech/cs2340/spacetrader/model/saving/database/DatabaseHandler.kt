@@ -167,13 +167,13 @@ class DatabaseHandler(private val context: Context): SQLiteOpenHelper(context, "
 
                         val planetInvQuery = "select * from items where planet='$pName'"
                         val planetIvnData = db.rawQuery(planetInvQuery, null)
-                        val planetInv = PlanetInventory(planet)
+                        planet.inventory.inv = HashMap()
                         if(planetIvnData.moveToFirst()) {
                             do{
                                 val good = planetIvnData.getInt(planetIvnData.getColumnIndex("name"))
                                 val amount = planetIvnData.getInt(planetIvnData.getColumnIndex("amount"))
-                                Log.d("planinv", planetInv.cap.toString())
-                                planetInv.addToInv(Good.values()[good], amount)
+                                Log.d("planinv", good.toString() + "  " + amount.toString() + planet.name)
+                                planet.inventory.inv[Good.values()[good]] = amount
                             } while (planetIvnData.moveToNext())
                         }
 

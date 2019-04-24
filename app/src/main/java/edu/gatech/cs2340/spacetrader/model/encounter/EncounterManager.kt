@@ -18,9 +18,9 @@ class EncounterManager(private val view: AppCompatActivity) {
     }
 
     fun attemptEncounter(status: TravelStatus): Boolean {
-        if ( Math.random() < .20f ) {
-//       if (true) {
-            val encounter = encounters.random().newInstance()
+//        if ( Math.random() < .20f ) {
+       if (true) {
+            val encounter = AsteroidEncounter()
             val instance = GameManager.INSTANCE!!
 
             encounter.setView(view)

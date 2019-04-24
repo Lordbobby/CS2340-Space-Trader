@@ -6,7 +6,7 @@ import edu.gatech.cs2340.spacetrader.util.Constants
 import java.io.Serializable
 
 class PlanetInventory(planet: Planet): Inventory(), Serializable {
-    override val inv: MutableMap<Good, Int> = mutableMapOf()
+    override var inv: MutableMap<Good, Int> = mutableMapOf()
     override var cap: Int = Int.MAX_VALUE
     override var size: Int = 0
 
