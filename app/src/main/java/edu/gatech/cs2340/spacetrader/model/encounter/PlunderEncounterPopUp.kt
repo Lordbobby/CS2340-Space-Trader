@@ -25,7 +25,7 @@ abstract class PlunderEncounterPopUp(view: AppCompatActivity, private val title:
         notAdded.keys.forEach {
             plundered.remove(it)
         }
-        displayFinalScreen("You plundered the pirate and received:", plundered)
+        displayFinalScreen("You plundered the opponent and received:", plundered)
     }
 
     private fun displayFinalScreen(desc: String, plundered: Map<Good, Int>) {
