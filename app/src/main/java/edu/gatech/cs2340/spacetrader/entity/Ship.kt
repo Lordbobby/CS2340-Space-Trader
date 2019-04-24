@@ -14,7 +14,7 @@ class Ship(type: ShipType): Serializable {
         }
 
     var fuel: Double = 20.0
-    var health: Int = type.health
+    var health: Double = type.health
 
     fun getFuelLevel ():Double {
         return fuel

@@ -38,6 +38,9 @@ class TravelViewModel(private val view: TravelActivity) {
             }
 
             IncreaseEventRunnable(man.provide(), 50).run()
+            if (!status.interrupted) {
+                man.currentPlanet = view.intent.extras!!["Planet"] as Planet
+            }
             view.startActivity(Intent(view, UniverseMapActivity::class.java))
             val fuel = String.format("%.2f", man.player.ship.getFuelLevel())
             val toast1 = Toast.makeText(view.applicationContext,
