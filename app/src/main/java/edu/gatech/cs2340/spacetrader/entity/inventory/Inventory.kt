@@ -9,7 +9,7 @@ abstract class Inventory: Serializable {
     abstract var size: Int
 
     fun addToInv(good: Good, v: Int) {
-        if (size + v < cap && v > 0) {
+        if (size + v <= cap && v > 0) {
             if (inv[good] == null) inv[good] = v else inv[good] = inv[good]!! + v
             size += v
         } else {
@@ -20,7 +20,7 @@ abstract class Inventory: Serializable {
     }
 
     fun removeFromInv(good: Good, v: Int) {
-        if (inv[good] != null && inv[good]!! - v >= 0) {
+        if (inv[good] != null && v > 0 && inv[good]!! - v >= 0) {
             inv[good] = inv[good]!! - v
             size -= v
         } else {
